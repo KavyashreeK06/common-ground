@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { loadProfile } from "../../lib/storage";
 import { rankOrgs, explainMatch, describeOrgForComparison } from "../../lib/matching";
-import { fetchOrgs, logQuizResult, submitFeedback } from "../../lib/data";
+import { fetchOrgs, logQuizResult, submitFeedback, fetchProfileFromCloud, fetchOrgUpvoteCounts } from "../../lib/data";
+import { getCurrentUser } from "../../lib/auth";
 import { MatchResult, Org, StudentProfile } from "../../types";
 import { ALL_COLUMBIA_EVENTS } from "../../data/events";
 import { MAJOR_ORG_KEYWORDS } from "../../data/majors";
 import { BACKGROUND_ORG_KEYWORDS } from "../../data/background";
 import { POSTGRAD_ORG_KEYWORDS } from "../../data/postgrad";
+import { recommendSection } from "../../content/belonging";
 
 type Vote = "up" | "down";
 const MAX_COMPARE = 3;
@@ -17,6 +19,7 @@ const MAX_COMPARE = 3;
 export default function ResultsPage() {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [orgs, setOrgs] = useState<Org[]>([]);
+  const [upvoteCounts, setUpvoteCounts] = useState<Record<string, number>>({});
   const [loaded, setLoaded] = useState(false);
   const [quizResultId, setQuizResultId] = useState<string | null>(null);
   const [votes, setVotes] = useState<Record<string, Vote>>({});
@@ -24,11 +27,26 @@ export default function ResultsPage() {
   const loggedRef = useRef(false);
 
   useEffect(() => {
-    Promise.all([Promise.resolve(loadProfile()), fetchOrgs()]).then(([p, { orgs }]) => {
-      setProfile(p);
+    async function load() {
+      const [localProfile, { orgs }, user, counts] = await Promise.all([
+        Promise.resolve(loadProfile()),
+        fetchOrgs(),
+        getCurrentUser(),
+        fetchOrgUpvoteCounts(),
+      ]);
+
+      let finalProfile = localProfile;
+      if (user) {
+        const cloudProfile = await fetchProfileFromCloud(user.id);
+        if (cloudProfile) finalProfile = cloudProfile;
+      }
+
+      setProfile(finalProfile);
       setOrgs(orgs);
+      setUpvoteCounts(counts);
       setLoaded(true);
-    });
+    }
+    load();
   }, []);
 
   if (loaded && !profile) {
@@ -92,9 +110,9 @@ export default function ResultsPage() {
 
   return (
     <main className="page">
-      <h1>Your matches</h1>
+      <h1>{profile.name ? `${profile.name}'s matches` : "Your matches"}</h1>
       <p className="subtitle">
-        Based on your answers, here's where you're most likely to find your people.
+        {profile.name ? `${profile.name}, here's` : "Here's"} where you're most likely to find your people.
         {profile.major && <> Showing extra weight to orgs and events relevant to <strong>{profile.major}</strong>.</>}
         {profile.background && profile.background.length > 0 && (
           <> Also weighting cultural and identity-based orgs relevant to what you shared.</>
@@ -178,6 +196,7 @@ export default function ResultsPage() {
             comparing={compareIds.includes(m.org.id)}
             compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(m.org.id)}
             onToggleCompare={() => toggleCompare(m.org.id)}
+            upvotes={upvoteCounts[m.org.id] ?? 0}
           />
         ))}
       </div>
@@ -197,6 +216,7 @@ export default function ResultsPage() {
                 comparing={compareIds.includes(m.org.id)}
                 compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(m.org.id)}
                 onToggleCompare={() => toggleCompare(m.org.id)}
+                upvotes={upvoteCounts[m.org.id] ?? 0}
               />
             ))}
           </div>
@@ -217,6 +237,15 @@ export default function ResultsPage() {
           </div>
         </>
       )}
+
+      <div className="card" style={{ marginTop: 24 }}>
+        <p style={{ margin: 0 }}>
+          Clubs are one piece of finding your footing here.{" "}
+          <Link href={`/belonging/${recommendSection(profile)}`} style={{ color: "var(--accent)", fontWeight: 600 }}>
+            Read what belonging might look like for you →
+          </Link>
+        </p>
+      </div>
 
       <div style={{ marginTop: 32, display: "flex", gap: 12 }}>
         <Link href="/clubs" className="btn btn-outline">Browse full directory</Link>
@@ -252,6 +281,7 @@ function MatchCard({
   comparing,
   compareDisabled,
   onToggleCompare,
+  upvotes,
 }: {
   org: Org;
   score: number;
@@ -262,6 +292,7 @@ function MatchCard({
   comparing: boolean;
   compareDisabled: boolean;
   onToggleCompare: () => void;
+  upvotes: number;
 }) {
   return (
     <div className="card" style={highlight ? { borderColor: "var(--accent)" } : undefined}>
@@ -270,6 +301,11 @@ function MatchCard({
         <span className="match-score">{score}%</span>
       </div>
       <span className="pill">{org.category}</span>
+      {upvotes > 0 && (
+        <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
+          {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit
+        </p>
+      )}
       <p style={{ marginTop: 10, marginBottom: 6, color: "var(--ink-soft)" }}>{org.description}</p>
       <p style={{ margin: 0, fontSize: 14, fontStyle: "italic" }}>{explanation}</p>
 

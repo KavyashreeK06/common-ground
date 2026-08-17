@@ -2,7 +2,8 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { fetchQuestions } from "../../lib/data";
+import { fetchQuestions, saveProfileToCloud } from "../../lib/data";
+import { getCurrentUser } from "../../lib/auth";
 import { buildStudentVector } from "../../lib/matching";
 import { saveProfile } from "../../lib/storage";
 import { COLUMBIA_MAJORS } from "../../data/majors";
@@ -27,18 +28,20 @@ function QuizInner() {
   const yearParam = params.get("year") as StudentYear | null;
   const year: StudentYear = STUDENT_YEARS.includes(yearParam as StudentYear) ? (yearParam as StudentYear) : "freshman";
 
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [rawQuestions, setRawQuestions] = useState<QuizQuestion[]>([]);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
   const [dataSource, setDataSource] = useState<"supabase" | "local" | null>(null);
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
     fetchQuestions().then(({ questions, source }) => {
-      setQuestions(questions);
+      setRawQuestions(questions);
       setDataSource(source);
       setLoadingQuestions(false);
     });
   }, []);
+
+  const questions = rawQuestions.filter((q) => !q.audience_years || q.audience_years.includes(year));
 
   const asksMajor = year !== "freshman";
 
@@ -52,6 +55,7 @@ function QuizInner() {
   const preQuizStepCount = questionsStartAt;
 
   const [step, setStep] = useState(0);
+  const [name, setName] = useState("");
   const [goals, setGoals] = useState<GoalTag[]>([]);
   const [background, setBackground] = useState<string[]>([]);
   const [interests, setInterests] = useState<string[]>([]);
@@ -81,7 +85,7 @@ function QuizInner() {
 
     if (step === totalSteps - 1) {
       const vector = buildStudentVector(next);
-      saveProfile({
+      const profile = {
         year,
         vector,
         goals,
@@ -90,6 +94,11 @@ function QuizInner() {
         intellectualInterests: interests.length > 0 ? interests : undefined,
         isInternational: isInternational ?? undefined,
         postGradInterests: postgrad.length > 0 ? postgrad : undefined,
+        name: name.trim() || undefined,
+      };
+      saveProfile(profile);
+      getCurrentUser().then((user) => {
+        if (user) saveProfileToCloud(user.id, profile);
       });
       router.push("/results");
     } else {
@@ -114,7 +123,19 @@ function QuizInner() {
             </span>
           )}
         </p>
-        <button onClick={() => setStarted(true)}>Start</button>
+        <label style={{ display: "block", fontSize: 13, fontWeight: 600, marginBottom: 6 }}>
+          What should we call you? (optional)
+        </label>
+        <input
+          className="input"
+          placeholder="Your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{ width: "100%", maxWidth: 320, marginBottom: 20 }}
+        />
+        <div>
+          <button onClick={() => setStarted(true)}>Start</button>
+        </div>
       </main>
     );
   }

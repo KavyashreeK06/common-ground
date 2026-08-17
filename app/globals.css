@@ -1,15 +1,15 @@
 :root {
-  --bg: #F6F1E4;
-  --bg-card: #FDFBF6;
-  --ink: #16232E;
-  --ink-soft: #5B6673;
-  --accent: #3D6C93;
-  --accent-soft: #E4EEF5;
-  --terracotta: #B9862E;
-  --terracotta-soft: #F6EBD5;
-  --border: #DCD4BF;
-  --border-strong: #B8AD90;
-  --radius: 8px;
+  --bg: #F3E6D3;
+  --bg-card: #FBF3E6;
+  --ink: #3E2C1E;
+  --ink-soft: #7C6A54;
+  --accent: #B5472F;
+  --accent-soft: #F3DCD1;
+  --terracotta: #A6792E;
+  --terracotta-soft: #F3E4C7;
+  --border: #E3CFAE;
+  --border-strong: #C9AD7C;
+  --radius: 10px;
   --max-width: 880px;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -112,16 +112,26 @@ h3 {
 .subtitle { color: var(--ink-soft); font-size: 16px; margin-bottom: 28px; max-width: 60ch; }
 
 .card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 22px 20px 20px;
   transition: box-shadow 0.15s, transform 0.15s;
 }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
 .card:hover {
-  box-shadow: 0 4px 16px rgba(22, 35, 46, 0.08);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(62, 44, 30, 0.14);
+  transform: translateY(-1px) rotate(-0.3deg);
 }
 
 .grid {
@@ -227,19 +237,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 .year-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
+  border: 2px dotted var(--terracotta);
   border-radius: var(--radius);
-  padding: 28px 16px 20px;
+  padding: 24px 16px 20px;
   text-align: center;
   text-decoration: none;
   color: var(--ink);
-  transition: box-shadow 0.15s, transform 0.15s;
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
 }
 .year-card:hover {
-  box-shadow: 0 4px 16px rgba(22, 35, 46, 0.08);
-  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(62, 44, 30, 0.14);
+  transform: translateY(-1px) rotate(-0.3deg);
 }
+
 .year-card-numeral {
   display: block;
   font-family: var(--font-mono);
@@ -281,7 +292,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   padding: 12px 18px;
   border-radius: var(--radius);
   margin-top: 20px;
-  box-shadow: 0 6px 20px rgba(22, 35, 46, 0.25);
+  box-shadow: 0 6px 20px rgba(62, 44, 30, 0.3);
 }
 
 .compare-table-wrap {

@@ -2,7 +2,7 @@ import "./globals.css";
 import Nav from "../components/Nav";
 
 export const metadata = {
-  title: "Campus Connections",
+  title: "Common Ground",
   description: "Find your people at Columbia.",
 };
 

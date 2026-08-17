@@ -10,13 +10,6 @@ const YEAR_LABELS: Record<StudentYear, string> = {
   senior: "Senior",
 };
 
-const YEAR_NUMERALS: Record<StudentYear, string> = {
-  freshman: "I",
-  sophomore: "II",
-  junior: "III",
-  senior: "IV",
-};
-
 export default function HomePage() {
   return (
     <main className="page">
@@ -30,7 +23,6 @@ export default function HomePage() {
       <div className="grid grid-4">
         {STUDENT_YEARS.map((y) => (
           <Link key={y} href={`/quiz?year=${y}`} className="year-card">
-            <span className="year-card-numeral">{YEAR_NUMERALS[y]}</span>
             <span className="year-card-label">{YEAR_LABELS[y]}</span>
           </Link>
         ))}

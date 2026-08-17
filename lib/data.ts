@@ -1,5 +1,5 @@
 import { supabase, isSupabaseConfigured } from "./supabase";
-import { AxisVector, MatchResult, Org, QuizQuestion } from "../types";
+import { AxisVector, MatchResult, Org, QuizQuestion, StudentProfile } from "../types";
 import localSeed from "../data/columbia_orgs_seed.json";
 import { QUESTIONS as LOCAL_QUESTIONS } from "../data/questions";
 
@@ -39,7 +39,7 @@ export async function fetchQuestions(): Promise<{ questions: QuizQuestion[]; sou
   try {
     const { data, error } = await supabase
       .from("quiz_question")
-      .select("id, text, options")
+      .select("id, text, options, audience_years")
       .order("sort_order", { ascending: true });
 
     if (error) throw error;
@@ -99,5 +99,101 @@ export async function submitFeedback(
     if (error) throw error;
   } catch (err) {
     console.warn("[data] Could not submit feedback (non-blocking):", err);
+  }
+}
+
+export interface OrgEditSubmission {
+  orgId: string;
+  orgName: string;
+  proposedDescription: string;
+  submitterNote?: string;
+  submitterContact?: string;
+  userId?: string | null;
+}
+
+export async function submitOrgEdit(submission: OrgEditSubmission): Promise<void> {
+  if (!isSupabaseConfigured) {
+    throw new Error("Submissions require a live database connection, which isn't configured right now.");
+  }
+  if (!UUID_RE.test(submission.orgId)) {
+    throw new Error("This org isn't in the live database yet, so edits can't be submitted for it right now.");
+  }
+  const { error } = await supabase.from("org_submission").insert({
+    org_id: submission.orgId,
+    org_name: submission.orgName,
+    proposed_description: submission.proposedDescription,
+    submitter_note: submission.submitterNote || null,
+    submitter_contact: submission.submitterContact || null,
+    submitted_by_user_id: submission.userId || null,
+  });
+  if (error) throw error;
+}
+
+export async function saveProfileToCloud(userId: string, profile: StudentProfile): Promise<void> {
+  if (!isSupabaseConfigured) return;
+  try {
+    const { error } = await supabase.from("user_profile").upsert({
+      user_id: userId,
+      university_id: "columbia",
+      year: profile.year,
+      vector: profile.vector,
+      goals: profile.goals,
+      major: profile.major ?? null,
+      background: profile.background ?? null,
+      intellectual_interests: profile.intellectualInterests ?? null,
+      is_international: profile.isInternational ?? null,
+      postgrad_interests: profile.postGradInterests ?? null,
+      name: profile.name ?? null,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) throw error;
+  } catch (err) {
+    console.warn("[data] Could not save profile to cloud (non-blocking):", err);
+  }
+}
+
+export async function fetchProfileFromCloud(userId: string): Promise<StudentProfile | null> {
+  if (!isSupabaseConfigured) return null;
+  try {
+    const { data, error } = await supabase
+      .from("user_profile")
+      .select("*")
+      .eq("user_id", userId)
+      .maybeSingle();
+    if (error) throw error;
+    if (!data) return null;
+    return {
+      year: data.year,
+      vector: data.vector,
+      goals: data.goals ?? [],
+      major: data.major ?? undefined,
+      background: data.background ?? undefined,
+      intellectualInterests: data.intellectual_interests ?? undefined,
+      isInternational: data.is_international ?? undefined,
+      postGradInterests: data.postgrad_interests ?? undefined,
+      name: data.name ?? undefined,
+    };
+  } catch (err) {
+    console.warn("[data] Could not fetch profile from cloud:", err);
+    return null;
+  }
+}
+
+export async function fetchOrgUpvoteCounts(): Promise<Record<string, number>> {
+  if (!isSupabaseConfigured) return {};
+  try {
+    const { data, error } = await supabase
+      .from("org_feedback")
+      .select("org_id, vote")
+      .eq("vote", "up");
+    if (error) throw error;
+    const counts: Record<string, number> = {};
+    for (const row of data ?? []) {
+      counts[row.org_id] = (counts[row.org_id] ?? 0) + 1;
+    }
+    return counts;
+  } catch (err) {
+    console.warn("[data] Could not fetch social proof counts:", err);
+    return {};
   }
 }

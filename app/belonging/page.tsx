@@ -1,20 +1,77 @@
-import { BELONGING_INTRO, BELONGING_SECTIONS } from "../../content/belonging";
+"use client";
 
-export default function BelongingPage() {
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { BELONGING_INTRO, BELONGING_SECTIONS, recommendSection } from "../../content/belonging";
+import { loadProfile } from "../../lib/storage";
+import { fetchProfileFromCloud } from "../../lib/data";
+import { getCurrentUser } from "../../lib/auth";
+import { StudentProfile } from "../../types";
+
+export default function BelongingIndexPage() {
+  const [profile, setProfile] = useState<StudentProfile | null>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    async function load() {
+      const localProfile = loadProfile();
+      const user = await getCurrentUser();
+      let finalProfile = localProfile;
+      if (user) {
+        const cloudProfile = await fetchProfileFromCloud(user.id);
+        if (cloudProfile) finalProfile = cloudProfile;
+      }
+      setProfile(finalProfile);
+      setLoaded(true);
+    }
+    load();
+  }, []);
+
+  const recommendedSlug = profile ? recommendSection(profile) : null;
+  const recommended = recommendedSlug ? BELONGING_SECTIONS.find((s) => s.slug === recommendedSlug) : null;
+
   return (
     <main className="page">
       <h1>{BELONGING_INTRO.title}</h1>
       <p className="subtitle">{BELONGING_INTRO.body}</p>
 
-      {BELONGING_SECTIONS.map((section) => (
-        <section key={section.slug} className="card" style={{ marginBottom: 20 }}>
-          <h2 style={{ marginTop: 0 }}>{section.title}</h2>
-          <p style={{ color: "var(--ink-soft)", fontWeight: 600, marginTop: 0 }}>{section.intro}</p>
-          {section.body.map((para, i) => (
-            <p key={i}>{para}</p>
-          ))}
-        </section>
-      ))}
+      {loaded && !profile && (
+        <div className="card" style={{ marginBottom: 24, borderColor: "var(--accent)" }}>
+          <p style={{ margin: 0 }}>
+            Take the quiz and we'll point you to the article most relevant to you.{" "}
+            <Link href="/quiz" style={{ color: "var(--accent)", fontWeight: 600 }}>Take the quiz →</Link>
+          </p>
+        </div>
+      )}
+
+      {recommended && (
+        <>
+          <span className="pill pill-terracotta" style={{ marginBottom: 8 }}>Recommended for you</span>
+          <Link
+            href={`/belonging/${recommended.slug}`}
+            className="card"
+            style={{ display: "block", marginBottom: 32, borderColor: "var(--accent)", textDecoration: "none", color: "var(--ink)" }}
+          >
+            <h2 style={{ marginTop: 0 }}>{recommended.title}</h2>
+            <p style={{ color: "var(--ink-soft)", margin: 0 }}>{recommended.intro}</p>
+          </Link>
+        </>
+      )}
+
+      <h2>All articles</h2>
+      <div className="grid grid-2">
+        {BELONGING_SECTIONS.map((section) => (
+          <Link
+            key={section.slug}
+            href={`/belonging/${section.slug}`}
+            className="card"
+            style={{ textDecoration: "none", color: "var(--ink)" }}
+          >
+            <h3>{section.title}</h3>
+            <p style={{ margin: 0, color: "var(--ink-soft)" }}>{section.intro}</p>
+          </Link>
+        ))}
+      </div>
     </main>
   );
 }

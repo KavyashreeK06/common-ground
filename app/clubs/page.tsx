@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { User } from "@supabase/supabase-js";
 import { Org } from "../../types";
-import { fetchOrgs, submitOrgEdit } from "../../lib/data";
+import { fetchOrgs, submitOrgEdit, fetchOrgUpvoteCounts } from "../../lib/data";
+import { getCurrentUser } from "../../lib/auth";
 import { describeOrgForComparison } from "../../lib/matching";
 
 const MAX_COMPARE = 3;
@@ -10,17 +12,23 @@ const MAX_COMPARE = 3;
 export default function ClubsPage() {
   const [orgs, setOrgs] = useState<Org[]>([]);
   const [dataSource, setDataSource] = useState<"supabase" | "local" | null>(null);
+  const [upvoteCounts, setUpvoteCounts] = useState<Record<string, number>>({});
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("all");
   const [compareIds, setCompareIds] = useState<string[]>([]);
 
   useEffect(() => {
-    fetchOrgs().then(({ orgs, source }) => {
-      setOrgs(orgs);
-      setDataSource(source);
-      setLoading(false);
-    });
+    Promise.all([fetchOrgs(), fetchOrgUpvoteCounts(), getCurrentUser()]).then(
+      ([{ orgs, source }, counts, currentUser]) => {
+        setOrgs(orgs);
+        setDataSource(source);
+        setUpvoteCounts(counts);
+        setUser(currentUser);
+        setLoading(false);
+      }
+    );
   }, []);
 
   const categories = useMemo(() => {
@@ -128,6 +136,8 @@ export default function ClubsPage() {
             comparing={compareIds.includes(o.id)}
             compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
             onToggleCompare={() => toggleCompare(o.id)}
+            upvotes={upvoteCounts[o.id] ?? 0}
+            user={user}
           />
         ))}
       </div>
@@ -156,16 +166,20 @@ function ClubCard({
   comparing,
   compareDisabled,
   onToggleCompare,
+  upvotes,
+  user,
 }: {
   org: Org;
   comparing: boolean;
   compareDisabled: boolean;
   onToggleCompare: () => void;
+  upvotes: number;
+  user: User | null;
 }) {
   const [editing, setEditing] = useState(false);
   const [description, setDescription] = useState(org.description);
   const [note, setNote] = useState("");
-  const [contact, setContact] = useState("");
+  const [contact, setContact] = useState(user?.email ?? "");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -179,6 +193,7 @@ function ClubCard({
         proposedDescription: description.trim(),
         submitterNote: note.trim() || undefined,
         submitterContact: contact.trim() || undefined,
+        userId: user?.id ?? null,
       });
       setStatus("success");
     } catch (err) {
@@ -191,6 +206,11 @@ function ClubCard({
     <div className="card">
       <h3>{org.name}</h3>
       <span className="pill">{org.category}</span>
+      {upvotes > 0 && (
+        <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
+          {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit
+        </p>
+      )}
       {org.description && (
         <p style={{ marginTop: 10, marginBottom: 0, color: "var(--ink-soft)" }}>{org.description}</p>
       )}
@@ -242,6 +262,11 @@ function ClubCard({
             onChange={(e) => setContact(e.target.value)}
             style={{ width: "100%", marginBottom: 8 }}
           />
+          {user && (
+            <p style={{ fontSize: 12, color: "var(--ink-soft)", margin: "0 0 8px" }}>
+              Submitting as signed-in user ({user.email}) -- this helps us prioritize review.
+            </p>
+          )}
           <button
             type="button"
             onClick={handleSubmit}
