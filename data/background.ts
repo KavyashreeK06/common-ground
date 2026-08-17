@@ -1,0 +1,33 @@
+export const BACKGROUND_TAGS = [
+  "African / African diaspora",
+  "Caribbean",
+  "East Asian",
+  "South Asian",
+  "Southeast Asian",
+  "Latine / Hispanic",
+  "Middle Eastern / North African",
+  "Jewish",
+  "Muslim",
+  "Native American / Indigenous",
+  "Pacific Islander",
+  "European heritage",
+  "LGBTQ+",
+  "First-generation / low-income",
+] as const;
+
+export const BACKGROUND_ORG_KEYWORDS: Record<string, string[]> = {
+  "African / African diaspora": ["african", "black", "ethiopian", "eritrean", "somali", "afro"],
+  "Caribbean": ["caribbean", "boricua", "quisqueyano", "brazilian"],
+  "East Asian": ["chinese", "korean", "japanese", "taiwanese", "hong kong", "mandarin"],
+  "South Asian": ["hindu", "bangla", "sapna", "pakistani", "desi", "zamana"],
+  "Southeast Asian": ["filipino", "thai", "vietnamese", "singapore", "south east asian", "hawai"],
+  "Latine / Hispanic": ["latine", "latinx", "alianza", "chicanx", "colombia", "venezuelan"],
+  "Middle Eastern / North African": ["palestinian", "turkish", "iranian", "turath"],
+  "Jewish": ["hillel", "jewish", "kesher", "koach", "chabad", "pizmon", "sharsheret", "nefesh", "lishma", "lalekhet"],
+  "Muslim": ["muslim", "msa", "niyyah"],
+  "Native American / Indigenous": ["native american", "indigenous"],
+  "Pacific Islander": ["hawai", "pacific"],
+  "European heritage": ["hellenic", "armenian", "polish", "french cultural", "european society"],
+  "LGBTQ+": ["queer", "lgbt", "pride", "q&a", "cqa"],
+  "First-generation / low-income": ["first-generation", "low-income"],
+};
