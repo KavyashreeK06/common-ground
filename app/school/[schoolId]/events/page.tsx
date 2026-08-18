@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ALL_COLUMBIA_EVENTS } from "../../data/events";
-import { EventCategory, STUDENT_YEARS, StudentYear } from "../../types";
+import Link from "next/link";
+import { EVENTS_BY_UNIVERSITY } from "../../../../data/events";
+import { UNIVERSITIES } from "../../../../data/universities";
+import { EventCategory, STUDENT_YEARS, StudentYear } from "../../../../types";
 
 const CATEGORY_LABELS: Record<EventCategory, string> = {
   school_tradition: "School tradition",
@@ -13,21 +15,39 @@ const CATEGORY_LABELS: Record<EventCategory, string> = {
   athletics: "Athletics",
 };
 
-export default function EventsPage() {
+export default function EventsPage({ params }: { params: { schoolId: string } }) {
+  const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
   const [category, setCategory] = useState<EventCategory | "all">("all");
   const [year, setYear] = useState<StudentYear | "all">("all");
 
+  const events = school ? (EVENTS_BY_UNIVERSITY[school.id] ?? []) : [];
+
   const filtered = useMemo(() => {
-    return ALL_COLUMBIA_EVENTS.filter((e) => {
+    return events.filter((e) => {
       const matchesCategory = category === "all" || e.category === category;
       const matchesYear = year === "all" || !e.audience_years || e.audience_years.includes(year);
       return matchesCategory && matchesYear;
     });
-  }, [category, year]);
+  }, [events, category, year]);
+
+  if (!school) {
+    return (
+      <main className="page">
+        <h1>Unknown school</h1>
+        <p className="subtitle">
+          We don't recognize that school. <Link href="/" style={{ color: "var(--accent)" }}>Choose a school →</Link>
+        </p>
+      </main>
+    );
+  }
 
   return (
     <main className="page">
-      <h1>Event directory</h1>
+      <Link href={`/school/${school.id}`} style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
+        ← Back to {school.shortName}
+      </Link>
+
+      <h1 style={{ marginTop: 16 }}>{school.shortName} event directory</h1>
       <p className="subtitle">
         School-wide traditions, plus events specific to your year or major.
       </p>

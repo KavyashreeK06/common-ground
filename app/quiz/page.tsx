@@ -9,6 +9,7 @@ import { saveProfile } from "../../lib/storage";
 import { COLUMBIA_MAJORS } from "../../data/majors";
 import { BACKGROUND_TAGS } from "../../data/background";
 import { POSTGRAD_TAGS } from "../../data/postgrad";
+import { UNIVERSITIES, DEFAULT_UNIVERSITY_ID } from "../../data/universities";
 import { GOAL_TAGS, GoalTag, QuizAnswerOption, QuizQuestion, StudentYear, STUDENT_YEARS } from "../../types";
 
 const GOAL_LABELS: Record<GoalTag, string> = {
@@ -27,6 +28,8 @@ function QuizInner() {
   const params = useSearchParams();
   const yearParam = params.get("year") as StudentYear | null;
   const year: StudentYear = STUDENT_YEARS.includes(yearParam as StudentYear) ? (yearParam as StudentYear) : "freshman";
+  const schoolParam = params.get("school");
+  const universityId = UNIVERSITIES.some((u) => u.id === schoolParam) ? schoolParam! : DEFAULT_UNIVERSITY_ID;
 
   const [rawQuestions, setRawQuestions] = useState<QuizQuestion[]>([]);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
@@ -95,6 +98,7 @@ function QuizInner() {
         isInternational: isInternational ?? undefined,
         postGradInterests: postgrad.length > 0 ? postgrad : undefined,
         name: name.trim() || undefined,
+        universityId,
       };
       saveProfile(profile);
       getCurrentUser().then((user) => {

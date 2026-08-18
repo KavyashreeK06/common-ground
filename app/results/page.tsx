@@ -7,7 +7,7 @@ import { rankOrgs, explainMatch, describeOrgForComparison } from "../../lib/matc
 import { fetchOrgs, logQuizResult, submitFeedback, fetchProfileFromCloud, fetchOrgUpvoteCounts } from "../../lib/data";
 import { getCurrentUser } from "../../lib/auth";
 import { MatchResult, Org, StudentProfile } from "../../types";
-import { ALL_COLUMBIA_EVENTS } from "../../data/events";
+import { EVENTS_BY_UNIVERSITY } from "../../data/events";
 import { MAJOR_ORG_KEYWORDS } from "../../data/majors";
 import { BACKGROUND_ORG_KEYWORDS } from "../../data/background";
 import { POSTGRAD_ORG_KEYWORDS } from "../../data/postgrad";
@@ -28,18 +28,20 @@ export default function ResultsPage() {
 
   useEffect(() => {
     async function load() {
-      const [localProfile, { orgs }, user, counts] = await Promise.all([
-        Promise.resolve(loadProfile()),
-        fetchOrgs(),
-        getCurrentUser(),
-        fetchOrgUpvoteCounts(),
-      ]);
+      const localProfile = loadProfile();
+      const user = await getCurrentUser();
 
       let finalProfile = localProfile;
       if (user) {
         const cloudProfile = await fetchProfileFromCloud(user.id);
         if (cloudProfile) finalProfile = cloudProfile;
       }
+
+      const universityId = finalProfile?.universityId ?? "columbia";
+      const [{ orgs }, counts] = await Promise.all([
+        fetchOrgs(universityId),
+        fetchOrgUpvoteCounts(),
+      ]);
 
       setProfile(finalProfile);
       setOrgs(orgs);
@@ -54,7 +56,7 @@ export default function ResultsPage() {
       <main className="page">
         <h1>No quiz results yet</h1>
         <p className="subtitle">Take the quiz first so we can find your matches.</p>
-        <Link href="/quiz" className="btn">Take the quiz</Link>
+                <Link href="/" className="btn">Choose your school</Link>
       </main>
     );
   }
@@ -63,6 +65,7 @@ export default function ResultsPage() {
     return <main className="page">Loading...</main>;
   }
 
+  const universityId = profile.universityId ?? "columbia";
   const majorKeywords = profile.major ? MAJOR_ORG_KEYWORDS[profile.major] : undefined;
   const backgroundKeywords = (profile.background ?? []).flatMap((tag) => BACKGROUND_ORG_KEYWORDS[tag] ?? []);
   const interestKeywords = (profile.intellectualInterests ?? []).flatMap((m) => MAJOR_ORG_KEYWORDS[m] ?? []);
@@ -76,14 +79,14 @@ export default function ResultsPage() {
 
   if (!loggedRef.current && matches.length > 0) {
     loggedRef.current = true;
-    logQuizResult("columbia", profile.vector, matches).then(setQuizResultId);
+    logQuizResult(universityId, profile.vector, matches).then(setQuizResultId);
   }
 
   function handleVote(orgId: string, vote: Vote) {
     setVotes((prev) => ({ ...prev, [orgId]: prev[orgId] === vote ? undefined as any : vote }));
     const newVote = votes[orgId] === vote ? null : vote;
     if (newVote) {
-      submitFeedback(orgId, "columbia", newVote, quizResultId);
+      submitFeedback(orgId, universityId, newVote, quizResultId);
     }
   }
 
@@ -99,7 +102,7 @@ export default function ResultsPage() {
     .map((id) => allShown.find((m) => m.org.id === id))
     .filter((m): m is MatchResult => Boolean(m));
 
-  const yearEvents = ALL_COLUMBIA_EVENTS.filter((e) => {
+  const yearEvents = (EVENTS_BY_UNIVERSITY[universityId] ?? []).filter((e) => {
     const matchesYear = !e.audience_years || e.audience_years.includes(profile.year);
     const matchesMajor =
       !e.audience_majors ||
@@ -241,15 +244,15 @@ export default function ResultsPage() {
       <div className="card" style={{ marginTop: 24 }}>
         <p style={{ margin: 0 }}>
           Clubs are one piece of finding your footing here.{" "}
-          <Link href={`/belonging/${recommendSection(profile)}`} style={{ color: "var(--accent)", fontWeight: 600 }}>
+                    <Link href={`/school/${universityId}/belonging/${recommendSection(profile)}`} style={{ color: "var(--accent)", fontWeight: 600 }}>
             Read what belonging might look like for you →
           </Link>
         </p>
       </div>
 
       <div style={{ marginTop: 32, display: "flex", gap: 12 }}>
-        <Link href="/clubs" className="btn btn-outline">Browse full directory</Link>
-        <Link href="/quiz" className="btn btn-outline">Retake quiz</Link>
+        <Link href={`/school/${universityId}/clubs`} className="btn btn-outline">Browse full directory</Link>
+        <Link href={`/quiz?school=${universityId}`} className="btn btn-outline">Retake quiz</Link>
       </div>
 
       {compareIds.length > 0 && (

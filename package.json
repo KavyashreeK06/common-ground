@@ -6,6 +6,7 @@
   "scripts": {
     "test:matching": "tsx scripts/test-matching.ts",
     "seed:supabase": "tsx scripts/seed-supabase.ts",
+    "seed:nyu": "tsx scripts/seed-nyu.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

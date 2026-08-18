@@ -1,12 +1,22 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BELONGING_SECTIONS } from "../../../content/belonging";
+import { BELONGING_SECTIONS } from "../../../../../content/belonging";
+import { UNIVERSITIES } from "../../../../../data/universities";
 
 export function generateStaticParams() {
-  return BELONGING_SECTIONS.map((s) => ({ slug: s.slug }));
+  const params: { schoolId: string; slug: string }[] = [];
+  for (const u of UNIVERSITIES) {
+    for (const s of BELONGING_SECTIONS) {
+      params.push({ schoolId: u.id, slug: s.slug });
+    }
+  }
+  return params;
 }
 
-export default function BelongingArticlePage({ params }: { params: { slug: string } }) {
+export default function BelongingArticlePage({ params }: { params: { schoolId: string; slug: string } }) {
+  const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
+  if (!school) notFound();
+
   const index = BELONGING_SECTIONS.findIndex((s) => s.slug === params.slug);
   if (index === -1) notFound();
 
@@ -16,7 +26,7 @@ export default function BelongingArticlePage({ params }: { params: { slug: strin
 
   return (
     <main className="page">
-      <Link href="/belonging" style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
+      <Link href={`/school/${school.id}/belonging`} style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
         ← All articles
       </Link>
 
@@ -29,12 +39,12 @@ export default function BelongingArticlePage({ params }: { params: { slug: strin
 
       <div style={{ display: "flex", justifyContent: "space-between", gap: 16, marginTop: 40, paddingTop: 20, borderTop: "1px solid var(--border)" }}>
         {prev ? (
-          <Link href={`/belonging/${prev.slug}`} style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, maxWidth: "45%" }}>
+          <Link href={`/school/${school.id}/belonging/${prev.slug}`} style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, maxWidth: "45%" }}>
             ← {prev.title}
           </Link>
         ) : <span />}
         {next && (
-          <Link href={`/belonging/${next.slug}`} style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textAlign: "right", maxWidth: "45%" }}>
+          <Link href={`/school/${school.id}/belonging/${next.slug}`} style={{ fontSize: 14, color: "var(--accent)", fontWeight: 600, textAlign: "right", maxWidth: "45%" }}>
             {next.title} →
           </Link>
         )}

@@ -1,15 +1,19 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import type { User } from "@supabase/supabase-js";
-import { Org } from "../../types";
-import { fetchOrgs, submitOrgEdit, fetchOrgUpvoteCounts } from "../../lib/data";
-import { getCurrentUser } from "../../lib/auth";
-import { describeOrgForComparison } from "../../lib/matching";
+import { Org } from "../../../../types";
+import { fetchOrgs, submitOrgEdit, fetchOrgUpvoteCounts } from "../../../../lib/data";
+import { getCurrentUser } from "../../../../lib/auth";
+import { describeOrgForComparison } from "../../../../lib/matching";
+import { UNIVERSITIES } from "../../../../data/universities";
 
 const MAX_COMPARE = 3;
 
-export default function ClubsPage() {
+export default function ClubsPage({ params }: { params: { schoolId: string } }) {
+  const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
+
   const [orgs, setOrgs] = useState<Org[]>([]);
   const [dataSource, setDataSource] = useState<"supabase" | "local" | null>(null);
   const [upvoteCounts, setUpvoteCounts] = useState<Record<string, number>>({});
@@ -20,7 +24,8 @@ export default function ClubsPage() {
   const [compareIds, setCompareIds] = useState<string[]>([]);
 
   useEffect(() => {
-    Promise.all([fetchOrgs(), fetchOrgUpvoteCounts(), getCurrentUser()]).then(
+    if (!school) return;
+    Promise.all([fetchOrgs(school.id), fetchOrgUpvoteCounts(), getCurrentUser()]).then(
       ([{ orgs, source }, counts, currentUser]) => {
         setOrgs(orgs);
         setDataSource(source);
@@ -29,7 +34,7 @@ export default function ClubsPage() {
         setLoading(false);
       }
     );
-  }, []);
+  }, [school]);
 
   const categories = useMemo(() => {
     const set = new Set(orgs.map((o) => o.category));
@@ -56,20 +61,26 @@ export default function ClubsPage() {
     .map((id) => orgs.find((o) => o.id === id))
     .filter((o): o is Org => Boolean(o));
 
-  if (loading) {
+  if (!school) {
     return (
       <main className="page">
-        <h1>Club directory</h1>
-        <p className="subtitle">Loading clubs...</p>
+        <h1>Unknown school</h1>
+        <p className="subtitle">
+          We don't recognize that school. <Link href="/" style={{ color: "var(--accent)" }}>Choose a school →</Link>
+        </p>
       </main>
     );
   }
 
   return (
     <main className="page">
-      <h1>Club directory</h1>
+      <Link href={`/school/${school.id}`} style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
+        ← Back to {school.shortName}
+      </Link>
+
+      <h1 style={{ marginTop: 16 }}>{school.shortName} club directory</h1>
       <p className="subtitle">
-        {orgs.length} organizations. Search, filter, or select up to {MAX_COMPARE} to compare side by side.
+        Search, filter, or select up to {MAX_COMPARE} to compare side by side.
         {dataSource === "local" && (
           <span style={{ display: "block", fontSize: 13, color: "var(--terracotta)", marginTop: 4 }}>
             Showing bundled data -- couldn't reach the live database.
@@ -77,70 +88,76 @@ export default function ClubsPage() {
         )}
       </p>
 
-      <div style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
-        <input
-          className="input"
-          placeholder="Search clubs..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          style={{ flex: 1, minWidth: 200 }}
-        />
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          {categories.map((c) => (
-            <option key={c} value={c}>{c === "all" ? "All categories" : c}</option>
-          ))}
-        </select>
-      </div>
-
-      {compareOrgs.length >= 2 && (
+      {loading ? (
+        <p className="subtitle">Loading clubs...</p>
+      ) : (
         <>
-          <h2>Comparing {compareOrgs.length} clubs</h2>
-          <div className="compare-table-wrap">
-            <table className="compare-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  {compareOrgs.map((o) => (
-                    <th key={o.id}>{o.name}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Category</td>
-                  {compareOrgs.map((o) => (
-                    <td key={o.id}>{o.category}</td>
-                  ))}
-                </tr>
-                {describeOrgForComparison(compareOrgs[0]).map((attr, i) => (
-                  <tr key={attr.label}>
-                    <td>{attr.label}</td>
-                    {compareOrgs.map((o) => (
-                      <td key={o.id}>{describeOrgForComparison(o)[i].value}</td>
+          <div style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
+            <input
+              className="input"
+              placeholder="Search clubs..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              style={{ flex: 1, minWidth: 200 }}
+            />
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              {categories.map((c) => (
+                <option key={c} value={c}>{c === "all" ? "All categories" : c}</option>
+              ))}
+            </select>
+          </div>
+
+          {compareOrgs.length >= 2 && (
+            <>
+              <h2>Comparing {compareOrgs.length} clubs</h2>
+              <div className="compare-table-wrap">
+                <table className="compare-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      {compareOrgs.map((o) => (
+                        <th key={o.id}>{o.name}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Category</td>
+                      {compareOrgs.map((o) => (
+                        <td key={o.id}>{o.category}</td>
+                      ))}
+                    </tr>
+                    {describeOrgForComparison(compareOrgs[0]).map((attr, i) => (
+                      <tr key={attr.label}>
+                        <td>{attr.label}</td>
+                        {compareOrgs.map((o) => (
+                          <td key={o.id}>{describeOrgForComparison(o)[i].value}</td>
+                        ))}
+                      </tr>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+
+          <p style={{ color: "var(--ink-soft)", fontSize: 14 }}>{orgs.length} organizations -- {filtered.length} shown</p>
+
+          <div className="grid grid-2">
+            {filtered.map((o) => (
+              <ClubCard
+                key={o.id}
+                org={o}
+                comparing={compareIds.includes(o.id)}
+                compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
+                onToggleCompare={() => toggleCompare(o.id)}
+                upvotes={upvoteCounts[o.id] ?? 0}
+                user={user}
+              />
+            ))}
           </div>
         </>
       )}
-
-      <p style={{ color: "var(--ink-soft)", fontSize: 14 }}>{filtered.length} results</p>
-
-      <div className="grid grid-2">
-        {filtered.map((o) => (
-          <ClubCard
-            key={o.id}
-            org={o}
-            comparing={compareIds.includes(o.id)}
-            compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
-            onToggleCompare={() => toggleCompare(o.id)}
-            upvotes={upvoteCounts[o.id] ?? 0}
-            user={user}
-          />
-        ))}
-      </div>
 
       {compareIds.length > 0 && (
         <div className="compare-bar">

@@ -1,8 +1,5 @@
 import { CampusEvent } from "../types";
 
-// Sourced from Columbia's own traditions page and campus life coverage.
-// Note: Orgo Night / Primal Scream is deliberately omitted -- the marching
-// band that ran it was disbanded in 2020 and the tradition is no longer active.
 export const COLUMBIA_EVENTS: CampusEvent[] = [
   {
     id: "convocation",
@@ -21,6 +18,16 @@ export const COLUMBIA_EVENTS: CampusEvent[] = [
     category: "year_specific",
     description:
       "Over 350 student groups table on Low Library Plaza during New Student Orientation Program week -- the single best way to see the breadth of campus organizations in one afternoon.",
+    timing: "During orientation week (late August)",
+    audience_years: ["freshman"],
+  },
+  {
+    id: "international-orientation",
+    university_id: "columbia",
+    name: "International Student Orientation",
+    category: "year_specific",
+    description:
+      "NSOP includes programming specifically for incoming international students, covering visa/immigration logistics and connecting new arrivals with each other early. Exact scheduling and format can shift year to year -- check the current NSOP calendar for specifics.",
     timing: "During orientation week (late August)",
     audience_years: ["freshman"],
   },
@@ -90,11 +97,6 @@ export const COLUMBIA_EVENTS: CampusEvent[] = [
   },
 ];
 
-// Major/department-specific events aren't published in a single central
-// directory the way traditions are -- they live on individual department
-// pages and mailing lists. These are realistic placeholders using common
-// Columbia department/career-fair patterns; swap in real dates once you
-// pull them from each department's own events page.
 export const TEMPLATE_MAJOR_EVENTS: CampusEvent[] = [
   {
     id: "engineering-career-fair",
@@ -103,7 +105,12 @@ export const TEMPLATE_MAJOR_EVENTS: CampusEvent[] = [
     category: "major_specific",
     description: "Columbia Engineering's career fair connecting students with tech, engineering, and finance employers.",
     timing: "Early fall and early spring",
-    audience_majors: ["Computer Science", "Engineering"],
+    audience_majors: [
+      "Computer Science", "Computer Engineering", "Electrical Engineering",
+      "Mechanical Engineering", "Civil Engineering", "Chemical Engineering",
+      "Biomedical Engineering", "Industrial Engineering and Operations Research",
+      "Applied Physics", "Applied Mathematics",
+    ],
   },
   {
     id: "econ-majors-night",
@@ -112,7 +119,7 @@ export const TEMPLATE_MAJOR_EVENTS: CampusEvent[] = [
     category: "major_specific",
     description: "Department mixer for declared and prospective economics majors with faculty and alumni panels.",
     timing: "Fall semester",
-    audience_majors: ["Economics"],
+    audience_majors: ["Economics", "Economics-Mathematics", "Financial Economics"],
   },
   {
     id: "premed-info-session",
@@ -121,8 +128,82 @@ export const TEMPLATE_MAJOR_EVENTS: CampusEvent[] = [
     category: "major_specific",
     description: "Overview of the pre-med track, MCAT timeline, and application process, run by Columbia's pre-professional advising office.",
     timing: "Beginning of each semester",
-    audience_majors: ["Biology", "Neuroscience", "Chemistry"],
+    audience_majors: ["Biology", "Neuroscience and Behavior", "Chemistry", "Environmental Biology"],
+  },
+  {
+    id: "humanities-majors-showcase",
+    university_id: "columbia",
+    name: "Humanities Majors Showcase",
+    category: "major_specific",
+    description: "Faculty and current majors talk through what a humanities major actually looks like day-to-day, plus career paths alumni have taken.",
+    timing: "Fall semester",
+    audience_majors: ["English", "Creative Writing", "Comparative Literature", "History", "Philosophy", "Classics", "Art History"],
+  },
+  {
+    id: "polisci-careers-panel",
+    university_id: "columbia",
+    name: "Political Science Careers Panel",
+    category: "major_specific",
+    description: "Alumni panel on paths from a political science degree into law, policy, journalism, and public service.",
+    timing: "Spring semester",
+    audience_majors: ["Political Science", "Sociology", "Urban Studies"],
   },
 ];
 
 export const ALL_COLUMBIA_EVENTS: CampusEvent[] = [...COLUMBIA_EVENTS, ...TEMPLATE_MAJOR_EVENTS];
+
+export const NYU_EVENTS: CampusEvent[] = [
+  {
+    id: "nyu-welcome-week",
+    university_id: "nyu",
+    name: "Welcome Week",
+    category: "year_specific",
+    description:
+      "A week of orientation programming at the start of the year, including a ferry party and other events designed to help new students meet each other early.",
+    timing: "Start of fall semester",
+    audience_years: ["freshman"],
+  },
+  {
+    id: "nyu-strawberry-festival",
+    university_id: "nyu",
+    name: "Strawberry Festival",
+    category: "school_tradition",
+    description:
+      "NYU Program Board's annual arts and music festival on West 3rd Street -- a 35+ year tradition featuring live music, local vendors, games, and a famously enormous strawberry shortcake.",
+    timing: "Beginning of May",
+  },
+  {
+    id: "nyu-violet-100",
+    university_id: "nyu",
+    name: "Violet 100 (V100)",
+    category: "school_tradition",
+    description:
+      "A week of marquee campus-wide events and discounted entertainment perks, including access to Skirball Center performances and exclusive ticket deals through ScholasTix.",
+    timing: "Varies by year -- check current NYU events calendar",
+  },
+  {
+    id: "nyu-flurry",
+    university_id: "nyu",
+    name: "Flurry",
+    category: "school_tradition",
+    description:
+      "An ice skating event at the Central Park rink, hosted by the Inter-Residence Hall Council -- one of NYU's most popular winter traditions.",
+    timing: "Winter",
+  },
+  {
+    id: "nyu-reads",
+    university_id: "nyu",
+    name: "NYU Reads",
+    category: "school_tradition",
+    description:
+      "A university-wide community reading program -- one book is chosen each year for the whole university to read, discuss, and build community around.",
+    timing: "Ongoing through the academic year",
+  },
+];
+
+export const ALL_NYU_EVENTS: CampusEvent[] = NYU_EVENTS;
+
+export const EVENTS_BY_UNIVERSITY: Record<string, CampusEvent[]> = {
+  columbia: ALL_COLUMBIA_EVENTS,
+  nyu: ALL_NYU_EVENTS,
+};

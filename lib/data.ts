@@ -1,20 +1,29 @@
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { AxisVector, MatchResult, Org, QuizQuestion, StudentProfile } from "../types";
-import localSeed from "../data/columbia_orgs_seed.json";
+import columbiaSeed from "../data/columbia_orgs_seed.json";
+import nyuSeed from "../data/nyu_orgs_seed.json";
 import { QUESTIONS as LOCAL_QUESTIONS } from "../data/questions";
 
-const LOCAL_ORGS: Org[] = (localSeed.orgs as any[]).map((o, i) => ({
-  id: `local-${i}`,
-  university_id: "columbia",
-  name: o.name,
-  category: o.category,
-  description: o.description ?? "",
-  tags: o.tags,
-}));
+function buildLocalOrgs(seed: { university: { id: string }; orgs: any[] }): Org[] {
+  return seed.orgs.map((o, i) => ({
+    id: `local-${seed.university.id}-${i}`,
+    university_id: seed.university.id,
+    name: o.name,
+    category: o.category,
+    description: o.description ?? "",
+    tags: o.tags,
+  }));
+}
+
+const LOCAL_ORGS_BY_UNIVERSITY: Record<string, Org[]> = {
+  columbia: buildLocalOrgs(columbiaSeed as any),
+  nyu: buildLocalOrgs(nyuSeed as any),
+};
 
 export async function fetchOrgs(universityId = "columbia"): Promise<{ orgs: Org[]; source: "supabase" | "local" }> {
+  const localFallback = LOCAL_ORGS_BY_UNIVERSITY[universityId] ?? LOCAL_ORGS_BY_UNIVERSITY.columbia;
   if (!isSupabaseConfigured) {
-    return { orgs: LOCAL_ORGS, source: "local" };
+    return { orgs: localFallback, source: "local" };
   }
   try {
     const { data, error } = await supabase
@@ -28,7 +37,7 @@ export async function fetchOrgs(universityId = "columbia"): Promise<{ orgs: Org[
     return { orgs: data as Org[], source: "supabase" };
   } catch (err) {
     console.warn("[data] Falling back to local org data -- Supabase fetch failed:", err);
-    return { orgs: LOCAL_ORGS, source: "local" };
+    return { orgs: localFallback, source: "local" };
   }
 }
 
@@ -134,7 +143,7 @@ export async function saveProfileToCloud(userId: string, profile: StudentProfile
   try {
     const { error } = await supabase.from("user_profile").upsert({
       user_id: userId,
-      university_id: "columbia",
+      university_id: profile.universityId ?? "columbia",
       year: profile.year,
       vector: profile.vector,
       goals: profile.goals,
@@ -172,6 +181,7 @@ export async function fetchProfileFromCloud(userId: string): Promise<StudentProf
       isInternational: data.is_international ?? undefined,
       postGradInterests: data.postgrad_interests ?? undefined,
       name: data.name ?? undefined,
+      universityId: data.university_id ?? "columbia",
     };
   } catch (err) {
     console.warn("[data] Could not fetch profile from cloud:", err);

@@ -55,7 +55,7 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
     title: "If you're coming from outside the US",
     intro: "Belonging here often means building two kinds of community at once, not choosing between them.",
     body: [
-      "Orientation week includes some programming aimed specifically at international students -- it's worth going even if the rest of NSOP feels US-centric, since it's often where you'll meet other students navigating the same adjustment at the same time.",
+      "Orientation week usually includes some programming aimed specifically at international students -- it's worth going even if the rest of orientation feels US-centric, since it's often where you'll meet other students navigating the same adjustment at the same time.",
       "It's common to feel pulled between a home-country/cultural community and the wider campus -- these aren't competing options. Many international students end up deeply involved in a country- or region-specific org while also building friendships through classes, dorms, or unrelated hobby clubs. Both are real belonging, not a consolation version of it.",
       "Practical adjustment (banking, visas, healthcare, first winter) can eat a lot of early-semester energy that domestic students don't have to spend the same way. If community-building feels slower at first, that's a reasonable and common reason, not a sign you're doing something wrong.",
     ],
@@ -83,11 +83,11 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
   {
     slug: "hazing",
     title: "Understanding hazing and how to stay safe",
-    intro: "Hazing remains a real risk in some Greek life, athletics, and club cultures, even though it's against both New York State law and Columbia policy.",
+    intro: "Hazing remains a real risk in some Greek life, athletics, and club cultures, even though it's against both New York State law and university policy.",
     body: [
       "Hazing generally means any activity expected of a new or prospective member that humiliates, degrades, physically endangers, or is otherwise abusive, regardless of whether the person being hazed appears to consent to it. Willingness to participate doesn't make an activity not hazing -- social pressure and the desire to belong are exactly what makes hazing effective, which is part of why it's treated seriously as a safety issue rather than a personal choice.",
       "A few patterns are worth treating as warning signs: being told to keep new-member activities secret from family, staff, or people outside the group; activities scheduled very late at night or involving sleep deprivation; being told some version of \"everyone who came before you went through this\"; and any sense that opting out of a specific activity would carry real social consequences within the group.",
-      "Columbia has reporting channels for hazing concerns, including through Public Safety and the office responsible for student conduct -- for the current, accurate reporting process, check Columbia's official student life or student conduct pages directly, since exact office names and contact channels can change.",
+      "Most universities have reporting channels for hazing concerns, including through campus safety and the office responsible for student conduct -- for the current, accurate reporting process at your school, check its official student life or student conduct pages directly, since exact office names and contact channels can change.",
       "Reporting a concern doesn't have to mean getting anyone in serious trouble by itself -- many reporting channels allow for informational reports, and organizations found responsible typically face a process rather than an automatic worst-case outcome. The goal of these channels is to prevent harm, not to punish curiosity about whether something is okay.",
     ],
   },
@@ -104,11 +104,11 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
   {
     slug: "university-resources",
     title: "Resources most students don't find until they need them",
-    intro: "Columbia has a lot of institutional support infrastructure that isn't always obvious until you're already looking for it under stress.",
+    intro: "Most universities have a lot of institutional support infrastructure that isn't always obvious until you're already looking for it under stress.",
     body: [
       "Broadly, this includes academic advising and your class dean's office, counseling and psychological services, financial aid (including emergency funding for unexpected situations), disability and accessibility services, and an ombuds-type office for informal conflict resolution outside of formal complaint processes. Career services also extends well beyond pre-professional clubs, with advising available regardless of what you're majoring in.",
       "It's worth spending ten minutes finding these offices while things are calm, rather than for the first time while something is urgent -- knowing a resource exists and roughly how to reach it removes one layer of friction from an already stressful moment.",
-      "Exact office names, structures, and contact points can shift year to year, so for current, accurate details it's worth checking Columbia's official student life or dean's office pages directly rather than relying on secondhand information.",
+      "Exact office names, structures, and contact points can shift year to year, so for current, accurate details it's worth checking your school's official student life or dean's office pages directly rather than relying on secondhand information.",
     ],
   },
   {
@@ -118,7 +118,7 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
     body: [
       "Not having found a settled community yet -- in week three, or even by the end of a first semester -- doesn't reflect a personal failure. The pacing described throughout these articles is normal, even when it doesn't feel that way in the moment.",
       "It's worth protecting some unstructured downtime even while you're actively trying to build community, rather than treating every free hour as a networking opportunity. Belonging tends to build better on a foundation of actually being okay day to day, not the other way around.",
-      "Columbia's counseling and psychological services are available to any enrolled student, not just students in visible crisis -- for current contact information and what to expect from an initial appointment, it's worth checking Columbia's official CPS pages directly.",
+      "Your school's counseling and psychological services are typically available to any enrolled student, not just students in visible crisis -- for current contact information and what to expect from an initial appointment, it's worth checking your school's counseling center pages directly.",
     ],
   },
 ];

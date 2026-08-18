@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BELONGING_INTRO, BELONGING_SECTIONS, recommendSection } from "../../content/belonging";
-import { loadProfile } from "../../lib/storage";
-import { fetchProfileFromCloud } from "../../lib/data";
-import { getCurrentUser } from "../../lib/auth";
-import { StudentProfile } from "../../types";
+import { BELONGING_INTRO, BELONGING_SECTIONS, recommendSection } from "../../../../content/belonging";
+import { loadProfile } from "../../../../lib/storage";
+import { fetchProfileFromCloud } from "../../../../lib/data";
+import { getCurrentUser } from "../../../../lib/auth";
+import { UNIVERSITIES } from "../../../../data/universities";
+import { StudentProfile } from "../../../../types";
 
-export default function BelongingIndexPage() {
+export default function BelongingIndexPage({ params }: { params: { schoolId: string } }) {
+  const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
+
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -27,19 +30,34 @@ export default function BelongingIndexPage() {
     load();
   }, []);
 
+  if (!school) {
+    return (
+      <main className="page">
+        <h1>Unknown school</h1>
+        <p className="subtitle">
+          We don't recognize that school. <Link href="/" style={{ color: "var(--accent)" }}>Choose a school →</Link>
+        </p>
+      </main>
+    );
+  }
+
   const recommendedSlug = profile ? recommendSection(profile) : null;
   const recommended = recommendedSlug ? BELONGING_SECTIONS.find((s) => s.slug === recommendedSlug) : null;
 
   return (
     <main className="page">
-      <h1>{BELONGING_INTRO.title}</h1>
+      <Link href={`/school/${school.id}`} style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
+        ← Back to {school.shortName}
+      </Link>
+
+      <h1 style={{ marginTop: 16 }}>{BELONGING_INTRO.title}</h1>
       <p className="subtitle">{BELONGING_INTRO.body}</p>
 
       {loaded && !profile && (
         <div className="card" style={{ marginBottom: 24, borderColor: "var(--accent)" }}>
           <p style={{ margin: 0 }}>
             Take the quiz and we'll point you to the article most relevant to you.{" "}
-            <Link href="/quiz" style={{ color: "var(--accent)", fontWeight: 600 }}>Take the quiz →</Link>
+            <Link href={`/quiz?school=${school.id}`} style={{ color: "var(--accent)", fontWeight: 600 }}>Take the quiz →</Link>
           </p>
         </div>
       )}
@@ -48,7 +66,7 @@ export default function BelongingIndexPage() {
         <>
           <span className="pill pill-terracotta" style={{ marginBottom: 8 }}>Recommended for you</span>
           <Link
-            href={`/belonging/${recommended.slug}`}
+            href={`/school/${school.id}/belonging/${recommended.slug}`}
             className="card"
             style={{ display: "block", marginBottom: 32, borderColor: "var(--accent)", textDecoration: "none", color: "var(--ink)" }}
           >
@@ -63,7 +81,7 @@ export default function BelongingIndexPage() {
         {BELONGING_SECTIONS.map((section) => (
           <Link
             key={section.slug}
-            href={`/belonging/${section.slug}`}
+            href={`/school/${school.id}/belonging/${section.slug}`}
             className="card"
             style={{ textDecoration: "none", color: "var(--ink)" }}
           >

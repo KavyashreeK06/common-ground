@@ -5,14 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
 import { getCurrentUser, onAuthChange } from "../lib/auth";
-
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/quiz", label: "Quiz" },
-  { href: "/belonging", label: "Belonging" },
-  { href: "/clubs", label: "Clubs" },
-  { href: "/events", label: "Events" },
-];
+import { UNIVERSITIES } from "../data/universities";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -24,14 +17,26 @@ export default function Nav() {
     return unsubscribe;
   }, []);
 
+  const segments = pathname.split("/").filter(Boolean);
+  const inSchoolContext = segments[0] === "school" && UNIVERSITIES.some((u) => u.id === segments[1]);
+  const schoolId = inSchoolContext ? segments[1] : null;
+
+  const LINKS = [
+    { href: "/", label: "Home" },
+    { href: schoolId ? `/quiz?school=${schoolId}` : "/", label: "Quiz" },
+    { href: schoolId ? `/school/${schoolId}/belonging` : "/", label: "Belonging" },
+    { href: schoolId ? `/school/${schoolId}/clubs` : "/", label: "Clubs" },
+    { href: schoolId ? `/school/${schoolId}/events` : "/", label: "Events" },
+  ];
+
   return (
     <nav className="nav">
       <Link href="/" className="nav-brand">Common Ground</Link>
       {LINKS.map((l) => (
         <Link
-          key={l.href}
+          key={l.label}
           href={l.href}
-          className={`nav-link ${pathname === l.href ? "active" : ""}`}
+          className={`nav-link ${pathname === l.href.split("?")[0] ? "active" : ""}`}
         >
           {l.label}
         </Link>

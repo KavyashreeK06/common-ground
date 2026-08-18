@@ -1,0 +1,88 @@
+{
+  "university": {
+    "id": "nyu",
+    "name": "New York University",
+    "domain": "nyu.edu"
+  },
+  "axis_key": [
+    "structure", "competitive", "public", "group_size", "career",
+    "physical", "creative", "cause", "novelty", "identity"
+  ],
+  "note": "Org names sourced from NYU's own school-level directories (Stern, Tandon, Steinhardt, CLACS Latinx/Latin American student org guide) as of Aug 2026. This is a smaller curated set (25 orgs) rather than an exhaustive directory -- built specifically to demonstrate the multi-university architecture, not to be a complete NYU club directory. Individually reasoned tags, not category-default.",
+  "orgs": [
+    { "name": "African Students Union", "category": "Cultural", "description": "Community and cultural programming for NYU students of African descent and those interested in African culture.",
+      "tags": { "structure": 4, "competitive": 1, "public": 5, "group_size": 6, "career": 1, "physical": 1, "creative": 3, "cause": 4, "novelty": 2, "identity": 9 } },
+
+    { "name": "Black Student Union", "category": "Cultural", "description": "Community, advocacy, and cultural programming for Black students at NYU.",
+      "tags": { "structure": 4, "competitive": 1, "public": 6, "group_size": 7, "career": 1, "physical": 1, "creative": 3, "cause": 5, "novelty": 2, "identity": 9 } },
+
+    { "name": "Caribbean Student Association", "category": "Cultural", "description": "Celebrates Caribbean culture and builds community among Caribbean and diaspora students at NYU.",
+      "tags": { "structure": 4, "competitive": 1, "public": 5, "group_size": 6, "career": 1, "physical": 1, "creative": 3, "cause": 3, "novelty": 2, "identity": 9 } },
+
+    { "name": "Mexican Student Association", "category": "Cultural", "description": "Community and cultural programming for NYU students connected to Mexican heritage.",
+      "tags": { "structure": 4, "competitive": 1, "public": 5, "group_size": 5, "career": 1, "physical": 1, "creative": 3, "cause": 3, "novelty": 2, "identity": 9 } },
+
+    { "name": "Puerto Rican Student Association", "category": "Cultural", "description": "Community and cultural programming for NYU students connected to Puerto Rican heritage.",
+      "tags": { "structure": 4, "competitive": 1, "public": 5, "group_size": 5, "career": 1, "physical": 1, "creative": 3, "cause": 3, "novelty": 2, "identity": 9 } },
+
+    { "name": "Native American and Indigenous Student Group", "category": "Identity-Based", "description": "Community and cultural space for Native American and Indigenous students at NYU.",
+      "tags": { "structure": 3, "competitive": 0, "public": 3, "group_size": 3, "career": 0, "physical": 0, "creative": 2, "cause": 6, "novelty": 1, "identity": 9 } },
+
+    { "name": "Muslim Students Association", "category": "Religious/Spiritual", "description": "Community space for NYU students to learn about and practice Islam together.",
+      "tags": { "structure": 5, "competitive": 0, "public": 3, "group_size": 5, "career": 0, "physical": 0, "creative": 1, "cause": 4, "novelty": 1, "identity": 7 } },
+
+    { "name": "NYU Ballroom & Latin Dance", "category": "Performing Arts", "description": "Ballroom and Latin dance team performing and competing across NYU and the wider collegiate dance circuit.",
+      "tags": { "structure": 7, "competitive": 4, "public": 8, "group_size": 5, "career": 0, "physical": 8, "creative": 7, "cause": 0, "novelty": 2, "identity": 2 } },
+
+    { "name": "Ritmo: Urban Latin Dance Club", "category": "Performing Arts", "description": "Urban Latin dance team blending hip-hop and Latin dance styles.",
+      "tags": { "structure": 6, "competitive": 2, "public": 8, "group_size": 5, "career": 0, "physical": 8, "creative": 7, "cause": 0, "novelty": 2, "identity": 4 } },
+
+    { "name": "Finance Society", "category": "Pre-Professional", "description": "Educates members on skills integral to a successful career in finance.",
+      "tags": { "structure": 7, "competitive": 5, "public": 3, "group_size": 6, "career": 9, "physical": 0, "creative": 1, "cause": 0, "novelty": 2, "identity": 1 } },
+
+    { "name": "International Business Association", "category": "Pre-Professional", "description": "Promotes global thinking and helps students find careers at international organizations.",
+      "tags": { "structure": 6, "competitive": 4, "public": 4, "group_size": 6, "career": 8, "physical": 0, "creative": 2, "cause": 1, "novelty": 3, "identity": 1 } },
+
+    { "name": "Investment Analysis Group", "category": "Pre-Professional", "description": "Manages NYU's only undergraduate student-run investment portfolio.",
+      "tags": { "structure": 7, "competitive": 6, "public": 2, "group_size": 4, "career": 9, "physical": 0, "creative": 1, "cause": 0, "novelty": 1, "identity": 1 } },
+
+    { "name": "Entrepreneurial Exchange Group", "category": "Pre-Professional", "description": "Offers speakers and workshops for students with entrepreneurial interests to learn, network, and be inspired.",
+      "tags": { "structure": 5, "competitive": 3, "public": 4, "group_size": 5, "career": 8, "physical": 0, "creative": 5, "cause": 1, "novelty": 5, "identity": 1 } },
+
+    { "name": "Luxury and Retail Association", "category": "Pre-Professional", "description": "Dedicated to forging ties between students and the luxury and retail industries.",
+      "tags": { "structure": 5, "competitive": 3, "public": 4, "group_size": 5, "career": 7, "physical": 0, "creative": 4, "cause": 0, "novelty": 3, "identity": 1 } },
+
+    { "name": "NYU Stern Student Council", "category": "Student Government and Advisory Boards", "description": "Official student governing body of NYU Stern, running social programming like Casino Night and the Stern Talent Show.",
+      "tags": { "structure": 8, "competitive": 2, "public": 6, "group_size": 7, "career": 4, "physical": 0, "creative": 1, "cause": 3, "novelty": 1, "identity": 1 } },
+
+    { "name": "Tandon Consulting Club", "category": "Pre-Professional", "description": "Student-driven consulting club offering case practice and industry exposure for NYU Tandon students.",
+      "tags": { "structure": 6, "competitive": 5, "public": 3, "group_size": 5, "career": 8, "physical": 0, "creative": 2, "cause": 0, "novelty": 2, "identity": 1 } },
+
+    { "name": "Tau Beta Pi", "category": "Academic", "description": "The oldest engineering honor society in the US, honoring academic achievement and integrity among engineering students.",
+      "tags": { "structure": 6, "competitive": 3, "public": 2, "group_size": 4, "career": 6, "physical": 0, "creative": 1, "cause": 2, "novelty": 1, "identity": 1 } },
+
+    { "name": "American Institute of Chemical Engineers (AIChE)", "category": "Academic", "description": "Student chapter connecting NYU Tandon chemical engineering students with the broader chemical engineering community.",
+      "tags": { "structure": 6, "competitive": 2, "public": 3, "group_size": 5, "career": 7, "physical": 0, "creative": 2, "cause": 1, "novelty": 2, "identity": 1 } },
+
+    { "name": "Design for America NYU", "category": "Service", "description": "Interdisciplinary student club using design thinking to tackle real-world community challenges.",
+      "tags": { "structure": 5, "competitive": 1, "public": 3, "group_size": 4, "career": 5, "physical": 0, "creative": 7, "cause": 6, "novelty": 4, "identity": 1 } },
+
+    { "name": "Theta Tau", "category": "Fraternity and Sorority Life", "description": "Professional engineering fraternity focused on leadership, service, and brotherhood among engineering students.",
+      "tags": { "structure": 6, "competitive": 2, "public": 4, "group_size": 6, "career": 5, "physical": 1, "creative": 1, "cause": 2, "novelty": 1, "identity": 4 } },
+
+    { "name": "Alpha Omega Epsilon", "category": "Fraternity and Sorority Life", "description": "Professional and social sorority promoting friendship, leadership, and professionalism among students in engineering and technical fields.",
+      "tags": { "structure": 6, "competitive": 2, "public": 4, "group_size": 5, "career": 5, "physical": 1, "creative": 1, "cause": 2, "novelty": 1, "identity": 5 } },
+
+    { "name": "Applied Psychology Undergraduate Club", "category": "Academic", "description": "Student-run club exploring psychology outside the classroom through professional development, social engagement, and community service.",
+      "tags": { "structure": 5, "competitive": 1, "public": 3, "group_size": 4, "career": 4, "physical": 0, "creative": 2, "cause": 3, "novelty": 2, "identity": 1 } },
+
+    { "name": "ASL Club", "category": "Special Interest", "description": "Dedicated to Deaf culture and American Sign Language, supporting ASL learners and the Deaf community at NYU.",
+      "tags": { "structure": 3, "competitive": 0, "public": 2, "group_size": 3, "career": 1, "physical": 1, "creative": 2, "cause": 3, "novelty": 4, "identity": 2 } },
+
+    { "name": "WNYU", "category": "Media and Publications", "description": "NYU's student-run radio station, broadcasting music, talk, and campus coverage.",
+      "tags": { "structure": 5, "competitive": 1, "public": 6, "group_size": 3, "career": 3, "physical": 0, "creative": 8, "cause": 1, "novelty": 3, "identity": 1 } },
+
+    { "name": "NYU Program Board", "category": "Special Interest", "description": "Student-run organization producing NYU's major campus-wide events, including the annual Strawberry Festival.",
+      "tags": { "structure": 6, "competitive": 1, "public": 7, "group_size": 7, "career": 2, "physical": 1, "creative": 5, "cause": 2, "novelty": 3, "identity": 1 } }
+  ]
+}

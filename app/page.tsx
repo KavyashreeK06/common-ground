@@ -1,47 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { STUDENT_YEARS, StudentYear } from "../types";
-
-const YEAR_LABELS: Record<StudentYear, string> = {
-  freshman: "Freshman",
-  sophomore: "Sophomore",
-  junior: "Junior",
-  senior: "Senior",
-};
+import { UNIVERSITIES } from "../data/universities";
 
 export default function HomePage() {
   return (
     <main className="page">
-      <h1>Find your people at Columbia</h1>
+      <h1>Welcome to Common Ground</h1>
       <p className="subtitle">
-        A short quiz matches you to student organizations based on how you actually
-        want to spend your time -- not just what category they fall under.
+        We help you find your people -- clubs, communities, and events that actually fit
+        who you are, matched specifically to your school.
       </p>
 
-      <h2>What year are you?</h2>
-      <div className="grid grid-4">
-        {STUDENT_YEARS.map((y) => (
-          <Link key={y} href={`/quiz?year=${y}`} className="year-card">
-            <span className="year-card-label">{YEAR_LABELS[y]}</span>
+      <h2>Choose your school</h2>
+      <div className="grid grid-2">
+        {UNIVERSITIES.map((u) => (
+          <Link key={u.id} href={`/school/${u.id}`} className="year-card">
+            <span className="year-card-label">{u.name}</span>
           </Link>
         ))}
       </div>
 
-      <h2>Or explore first</h2>
-      <div className="grid grid-2">
-        <Link href="/belonging" className="card" style={{ textDecoration: "none" }}>
-          <h3>What belonging looks like here</h3>
+      <h2>How it works</h2>
+      <div className="grid grid-4">
+        <div className="card">
+          <span className="year-card-numeral">01</span>
+          <h3 style={{ marginTop: 6 }}>Pick your school</h3>
           <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-            A few different starting points, depending on where you're coming from.
+            Every match is specific to your campus -- real clubs, real events.
           </p>
-        </Link>
-        <Link href="/clubs" className="card" style={{ textDecoration: "none" }}>
-          <h3>Browse the full club directory</h3>
+        </div>
+        <div className="card">
+          <span className="year-card-numeral">02</span>
+          <h3 style={{ marginTop: 6 }}>Take a short quiz</h3>
           <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-            495 organizations across academics, arts, athletics, culture, and more.
+            A few minutes on how you actually want to spend your time.
           </p>
-        </Link>
+        </div>
+        <div className="card">
+          <span className="year-card-numeral">03</span>
+          <h3 style={{ marginTop: 6 }}>Meet your matches</h3>
+          <p style={{ margin: 0, color: "var(--ink-soft)" }}>
+            See the clubs most likely to feel like home, and why.
+          </p>
+        </div>
       </div>
     </main>
   );

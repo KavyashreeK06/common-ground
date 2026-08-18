@@ -70,6 +70,8 @@ export interface StudentProfile {
   intellectualInterests?: string[];
   isInternational?: boolean;
   postGradInterests?: string[]; // e.g. pre-med, pre-law, grad school -- used only for a matching boost
+  name?: string; // optional, used only to personalize copy (e.g. "Hey Alex, here's...")
+  universityId?: string; // defaults to "columbia" when absent, for backward compatibility with profiles saved before multi-university support
 }
 
 export type EventCategory =
