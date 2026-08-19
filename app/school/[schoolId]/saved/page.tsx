@@ -13,7 +13,7 @@ import { BookmarkX } from "lucide-react";
 
 export default function SavedPage({ params }: { params: { schoolId: string } }) {
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
-  const { savedIds, toggleSave, loaded: savedLoaded } = useSavedOrgs(params.schoolId);
+  const { savedIds, toggleSave, loaded: savedLoaded, signedIn } = useSavedOrgs(params.schoolId);
 
   const [orgs, setOrgs] = useState<Org[]>([]);
   const [orgsLoading, setOrgsLoading] = useState(true);
@@ -40,6 +40,19 @@ export default function SavedPage({ params }: { params: { schoolId: string } }) 
   }
 
   const loading = orgsLoading || !savedLoaded;
+
+  if (savedLoaded && !signedIn) {
+    return (
+      <main className="page">
+        <Link href={`/school/${school.id}`} style={{ fontSize: 13, color: "var(--ink-soft)", fontWeight: 600 }}>
+          ← Back to {school.shortName}
+        </Link>
+        <h1 style={{ marginTop: 16 }}>Saved organizations</h1>
+        <p className="subtitle">Sign in to bookmark clubs and revisit them here.</p>
+        <Link href={`/account?school=${school.id}`} className="btn">Sign in</Link>
+      </main>
+    );
+  }
 
   return (
     <main className="page">
@@ -70,10 +83,22 @@ export default function SavedPage({ params }: { params: { schoolId: string } }) 
                 <h3>{org.name}</h3>
                 <SaveButton saved onToggle={() => toggleSave(org.id)} />
               </div>
-              <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-                <CategoryIcon category={org.category} />
-                {org.category}
-              </span>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  <CategoryIcon category={org.category} />
+                  {org.category}
+                </span>
+                {(org.secondaryCategories ?? []).map((c) => (
+                  <span
+                    key={c}
+                    className="pill"
+                    style={{ display: "inline-flex", alignItems: "center", gap: 5, opacity: 0.7 }}
+                  >
+                    <CategoryIcon category={c} />
+                    {c}
+                  </span>
+                ))}
+              </div>
               {org.description && (
                 <p style={{ marginTop: 10, marginBottom: 0, color: "var(--ink-soft)" }}>{org.description}</p>
               )}

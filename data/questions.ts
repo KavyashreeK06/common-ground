@@ -52,8 +52,8 @@ export const QUESTIONS: QuizQuestion[] = [
     id: "q6",
     text: "A club meeting runs long because of passionate debate. You're...",
     options: [
-      { label: "Energized -- this is why you joined", deltas: { physical: -2, cause: 1 } },
-      { label: "Fine with it occasionally, but prefer efficient meetings", deltas: { structure: 1 } },
+      { label: "Energized — this is why you joined", deltas: { physical: -2, cause: 1 } },
+      { label: "Fine with it occasionally, but prefer efficient meetings", deltas: { structure: 1, cause: -2 } },
       { label: "Would rather be doing than discussing", deltas: { physical: 2, cause: -1 } },
     ],
   },
@@ -81,7 +81,7 @@ export const QUESTIONS: QuizQuestion[] = [
     options: [
       { label: "A lot -- I want relevant experience", deltas: { career: 3 } },
       { label: "Some, but not the main reason", deltas: {} },
-      { label: "Not at all, purely for enjoyment", deltas: { career: -3 } },
+      { label: "Not at all, purely for enjoyment", deltas: { career: -3, cause: -1 } },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const QUESTIONS: QuizQuestion[] = [
     text: "When you disagree with the group's plan, you...",
     options: [
       { label: "Push hard to change it -- I have strong opinions", deltas: { competitive: 2, cause: 1 } },
-      { label: "Go with the flow, it's not worth the friction", deltas: { competitive: -2 } },
+      { label: "Go with the flow, it's not worth the friction", deltas: { competitive: -2, cause: -1 } },
       { label: "Ask a lot of questions before deciding what to think", deltas: { physical: -1 } },
     ],
   },
@@ -166,7 +166,7 @@ export const QUESTIONS: QuizQuestion[] = [
     id: "q19",
     text: "A club's social post that makes you want to join is...",
     options: [
-      { label: "Behind-the-scenes bloopers and inside jokes", deltas: { public: -1, creative: 1 } },
+      { label: "Behind-the-scenes bloopers and inside jokes", deltas: { public: -1, creative: 1, cause: -1 } },
       { label: "A big competition win", deltas: { competitive: 2, public: 1 } },
       { label: "A community impact highlight", deltas: { cause: 2 } },
     ],

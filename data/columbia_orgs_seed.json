@@ -16,7 +16,7 @@
     "novelty",
     "identity"
   ],
-  "note": "Org names sourced from Columbia's official student-group directory (undergrad.admissions.columbia.edu/life/here/clubs/listings), pasted in full. The ~30 orgs from the original hand-picked batch have individually-reasoned tags. All other orgs (the bulk of this file) were tagged automatically using category-level default vectors plus light keyword nudges (see scripts/build_full_seed.py) -- treat these as a reasonable v1, not precise per-org judgments. Refine by hand for any org that ends up in your top demo matches. UPDATE: auto-tagged orgs (the 464 from the bulk directory import) had their tags recomputed with keyword-based nudges layered on top of category defaults (see scripts/improve_tags.py) -- e.g. 'Varsity' pushes competitive up, 'A Cappella' pushes public/creative up. This meaningfully differentiates orgs within the same category that were previously identical, though it's still a heuristic, not individually reasoned tagging.",
+  "note": "Org names sourced from Columbia's official student-group directory (undergrad.admissions.columbia.edu/life/here/clubs/listings), pasted in full. The ~30 orgs from the original hand-picked batch have individually-reasoned tags. All other orgs (the bulk of this file) were tagged automatically using category-level default vectors plus light keyword nudges (see scripts/build_full_seed.py) -- treat these as a reasonable v1, not precise per-org judgments. Refine by hand for any org that ends up in your top demo matches. UPDATE: auto-tagged orgs (the 464 from the bulk directory import) had their tags recomputed with keyword-based nudges layered on top of category defaults (see scripts/improve_tags.py) -- e.g. 'Varsity' pushes competitive up, 'A Cappella' pushes public/creative up. This meaningfully differentiates orgs within the same category that were previously identical, though it is still a heuristic, not individually reasoned tagging.",
   "orgs": [
     {
       "name": "Columbia Marketing Club",
@@ -866,7 +866,11 @@
         "cause": 2,
         "novelty": 3,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Pre-Professional"
+      ]
     },
     {
       "name": "Mock Trial",
@@ -1223,7 +1227,10 @@
         "cause": 0,
         "novelty": 2,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Columbia University Cheerleading",
@@ -2331,40 +2338,6 @@
       }
     },
     {
-      "name": "Asian/Pacific American Heritage Month",
-      "category": "Cultural",
-      "description": "Asian/Pacific American Heritage Month builds community and celebrates shared culture among Columbia students.",
-      "tags": {
-        "structure": 4,
-        "competitive": 1,
-        "public": 7,
-        "group_size": 6,
-        "career": 1,
-        "physical": 1,
-        "creative": 3,
-        "cause": 4,
-        "novelty": 2,
-        "identity": 9
-      }
-    },
-    {
-      "name": "Black History Month (BHM)",
-      "category": "Cultural",
-      "description": "Black History Month (BHM) builds community and celebrates shared culture among Columbia students.",
-      "tags": {
-        "structure": 4,
-        "competitive": 1,
-        "public": 5,
-        "group_size": 6,
-        "career": 1,
-        "physical": 1,
-        "creative": 3,
-        "cause": 3,
-        "novelty": 2,
-        "identity": 9
-      }
-    },
-    {
       "name": "Black Students Organization",
       "category": "Cultural",
       "description": "Black Students Organization builds community and celebrates shared culture among Columbia students.",
@@ -2552,23 +2525,6 @@
       }
     },
     {
-      "name": "Columbia University Asian Pacific American Heritage Month",
-      "category": "Cultural",
-      "description": "Columbia University Asian Pacific American Heritage Month builds community and celebrates shared culture among Columbia students.",
-      "tags": {
-        "structure": 4,
-        "competitive": 1,
-        "public": 7,
-        "group_size": 6,
-        "career": 1,
-        "physical": 1,
-        "creative": 3,
-        "cause": 4,
-        "novelty": 2,
-        "identity": 9
-      }
-    },
-    {
       "name": "CU Boricuas",
       "category": "Cultural",
       "description": "CU Boricuas builds community and celebrates shared culture among Columbia students.",
@@ -2668,7 +2624,10 @@
         "cause": 3,
         "novelty": 2,
         "identity": 9
-      }
+      },
+      "secondaryCategories": [
+        "Religious/Spiritual"
+      ]
     },
     {
       "name": "Hindu Students Organization",
@@ -2685,7 +2644,10 @@
         "cause": 3,
         "novelty": 2,
         "identity": 9
-      }
+      },
+      "secondaryCategories": [
+        "Religious/Spiritual"
+      ]
     },
     {
       "name": "Hong Kong Students and Scholars Society",
@@ -2739,23 +2701,6 @@
       }
     },
     {
-      "name": "Latinx Heritage Month",
-      "category": "Cultural",
-      "description": "Latinx Heritage Month builds community and celebrates shared culture among Columbia students.",
-      "tags": {
-        "structure": 4,
-        "competitive": 1,
-        "public": 7,
-        "group_size": 6,
-        "career": 1,
-        "physical": 1,
-        "creative": 3,
-        "cause": 4,
-        "novelty": 2,
-        "identity": 9
-      }
-    },
-    {
       "name": "Liga Filipina",
       "category": "Cultural",
       "description": "Liga Filipina builds community and celebrates shared culture among Columbia students.",
@@ -2802,23 +2747,6 @@
         "physical": 1,
         "creative": 3,
         "cause": 3,
-        "novelty": 2,
-        "identity": 9
-      }
-    },
-    {
-      "name": "Native American Heritage Month",
-      "category": "Cultural",
-      "description": "Native American Heritage Month builds community and celebrates shared culture among Columbia students.",
-      "tags": {
-        "structure": 4,
-        "competitive": 1,
-        "public": 7,
-        "group_size": 6,
-        "career": 1,
-        "physical": 1,
-        "creative": 3,
-        "cause": 4,
         "novelty": 2,
         "identity": 9
       }
@@ -3603,7 +3531,10 @@
         "cause": 5,
         "novelty": 1,
         "identity": 9
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "ColumbiAces",
@@ -3688,7 +3619,10 @@
         "cause": 5,
         "novelty": 1,
         "identity": 9
-      }
+      },
+      "secondaryCategories": [
+        "Religious/Spiritual"
+      ]
     },
     {
       "name": "JQ",
@@ -3737,23 +3671,6 @@
         "physical": 0,
         "creative": 2,
         "cause": 5,
-        "novelty": 1,
-        "identity": 9
-      }
-    },
-    {
-      "name": "Queer Awareness Month (QuAM)",
-      "category": "Identity-Based",
-      "description": "Queer Awareness Month (QuAM) provides community and support for Columbia students who share this identity or experience.",
-      "tags": {
-        "structure": 3,
-        "competitive": 1,
-        "public": 5,
-        "group_size": 4,
-        "career": 1,
-        "physical": 0,
-        "creative": 2,
-        "cause": 7,
         "novelty": 1,
         "identity": 9
       }
@@ -3830,23 +3747,6 @@
       "name": "Women of Color Collective",
       "category": "Identity-Based",
       "description": "Women of Color Collective provides community and support for Columbia students who share this identity or experience.",
-      "tags": {
-        "structure": 3,
-        "competitive": 1,
-        "public": 3,
-        "group_size": 4,
-        "career": 1,
-        "physical": 0,
-        "creative": 2,
-        "cause": 5,
-        "novelty": 1,
-        "identity": 9
-      }
-    },
-    {
-      "name": "Womens History Month",
-      "category": "Identity-Based",
-      "description": "Womens History Month provides community and support for Columbia students who share this identity or experience.",
       "tags": {
         "structure": 3,
         "competitive": 1,
@@ -4368,7 +4268,10 @@
         "cause": 0,
         "novelty": 1,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Columbia Chinese Orchestra",
@@ -4385,7 +4288,10 @@
         "cause": 0,
         "novelty": 1,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Columbia Composers",
@@ -5660,7 +5566,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 3
-      }
+      },
+      "secondaryCategories": [
+        "Religious/Spiritual"
+      ]
     },
     {
       "name": "Planned Parenthood Generation at Columbia",
@@ -6051,7 +5960,10 @@
         "cause": 1,
         "novelty": 2,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
     },
     {
       "name": "Columbia Organization of Rising Entrepreneurs (CORE)",
@@ -6289,7 +6201,10 @@
         "cause": 1,
         "novelty": 2,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Koreans in General Studies",
@@ -6901,7 +6816,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
     },
     {
       "name": "African Development Group",
@@ -6918,7 +6836,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "AfterHours Tutoring",
@@ -7020,7 +6941,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Barnard/Columbia Design For America (DFA)",
@@ -7309,7 +7233,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
     },
     {
       "name": "Girls Who Code",
@@ -8023,7 +7950,10 @@
         "cause": 1,
         "novelty": 6,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
     },
     {
       "name": "Columbia Vegan Society",

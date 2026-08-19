@@ -46,7 +46,7 @@ export function rankOrgs(
   axisWeights?: Partial<Record<Axis, number>>,
   topN = 5,
   majorKeywords?: string[],
-  majorBoost = 6
+  majorBoost = 12
 ): MatchResult[] {
   return orgs
     .map((org) => {
@@ -62,7 +62,15 @@ export function rankOrgs(
     .slice(0, topN);
 }
 
-const AXIS_PHRASES: Record<Axis, [string, string]> = {
+export function findSimilarOrgs(target: Org, allOrgs: Org[], topN = 4): MatchResult[] {
+  return allOrgs
+    .filter((o) => o.id !== target.id)
+    .map((org) => ({ org, score: matchScore(target.tags, org.tags) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, topN);
+}
+
+export const AXIS_PHRASES: Record<Axis, [string, string]> = {
   structure: ["prefers a casual, spontaneous vibe", "thrives with structure and routine"],
   competitive: ["values collaboration over competition", "is drawn to competition"],
   public: ["prefers working behind the scenes", "enjoys being in the spotlight"],
@@ -88,6 +96,16 @@ export function explainMatch(studentVec: AxisVector, org: Org): string {
   const phrases = topTwo.map(({ axis, studentLow }) => AXIS_PHRASES[axis][studentLow ? 0 : 1]);
 
   return `You matched with ${org.name} because you ${phrases[0]} and ${phrases[1]}.`;
+}
+
+export function describeStudent(studentVec: AxisVector, n = 3): string[] {
+  const diffs = AXES.map((axis) => ({
+    axis,
+    magnitude: Math.abs(studentVec[axis] - 5),
+    isHigh: studentVec[axis] > 5,
+  }));
+  diffs.sort((a, b) => b.magnitude - a.magnitude);
+  return diffs.slice(0, n).map(({ axis, isHigh }) => AXIS_PHRASES[axis][isHigh ? 1 : 0]);
 }
 
 export interface ComparisonAttribute {

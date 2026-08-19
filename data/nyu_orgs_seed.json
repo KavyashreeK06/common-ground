@@ -33,7 +33,10 @@
         "cause": 1,
         "novelty": 6,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
     },
     {
       "name": "Aces & Aros",
@@ -322,7 +325,10 @@
         "cause": 5,
         "novelty": 2,
         "identity": 6
-      }
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
     },
     {
       "name": "Alpha Sigma Tau Sorority - All-University",
@@ -679,7 +685,10 @@
         "cause": 4,
         "novelty": 0,
         "identity": 6
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Asian Cultural Union - All-University",
@@ -713,7 +722,10 @@
         "cause": 0,
         "novelty": 1,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Asian Heritage Month - All-University",
@@ -883,7 +895,10 @@
         "cause": 0,
         "novelty": 1,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Bechdel Test Comedy",
@@ -1172,7 +1187,10 @@
         "cause": 1,
         "novelty": 6,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
     },
     {
       "name": "Brown Sugar Brilliance - All-University",
@@ -1444,7 +1462,10 @@
         "cause": 3,
         "novelty": 1,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
     },
     {
       "name": "CAS Student Council Curriculum Committee",
@@ -1682,7 +1703,10 @@
         "cause": 1,
         "novelty": 2,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Chinese Mei Society - All-University",
@@ -2957,7 +2981,10 @@
         "cause": 5,
         "novelty": 1,
         "identity": 9
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Hammerkatz NYU",
@@ -3144,7 +3171,10 @@
         "cause": 8,
         "novelty": 2,
         "identity": 3
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Hong Kong Student Association - All-University",
@@ -3348,7 +3378,10 @@
         "cause": 4,
         "novelty": 0,
         "identity": 6
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "International Filipino Association - All-University",
@@ -3773,7 +3806,10 @@
         "cause": 2,
         "novelty": 2,
         "identity": 8
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "LaLaHaHa Musical Comedy",
@@ -4317,7 +4353,10 @@
         "cause": 0,
         "novelty": 1,
         "identity": 2
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "National Society of Black Engineers",
@@ -4623,7 +4662,10 @@
         "cause": 2,
         "novelty": 6,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
     },
     {
       "name": "NYU ReCover",
@@ -5218,7 +5260,10 @@
         "cause": 1,
         "novelty": 6,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Identity-Based"
+      ]
     },
     {
       "name": "PRINT3D @ NYU - All-University",
@@ -5660,7 +5705,10 @@
         "cause": 2,
         "novelty": 3,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Religious/Spiritual"
+      ]
     },
     {
       "name": "SHADES",
@@ -5949,7 +5997,10 @@
         "cause": 1,
         "novelty": 2,
         "identity": 1
-      }
+      },
+      "secondaryCategories": [
+        "Cultural"
+      ]
     },
     {
       "name": "Society of Hispanic Professional Engineers",

@@ -31,7 +31,7 @@ function neutralVector(): AxisVector {
 
 export default function ExplorePage({ params }: { params: { schoolId: string } }) {
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
-  const { savedIds, toggleSave } = useSavedOrgs(params.schoolId);
+    const { savedIds, toggleSave, signedIn } = useSavedOrgs(params.schoolId);
 
   const [vector, setVector] = useState<AxisVector>(neutralVector());
   const [orgs, setOrgs] = useState<Org[]>([]);
@@ -113,7 +113,7 @@ export default function ExplorePage({ params }: { params: { schoolId: string } }
                       {m.org.category}
                     </span>
                   </div>
-                  <SaveButton saved={savedIds.has(m.org.id)} onToggle={() => toggleSave(m.org.id)} />
+                                    {signedIn && <SaveButton saved={savedIds.has(m.org.id)} onToggle={() => toggleSave(m.org.id)} />}
                 </div>
               ))}
             </div>

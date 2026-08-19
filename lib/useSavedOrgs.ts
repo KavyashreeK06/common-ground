@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./auth";
 import { fetchSavedOrgIds, saveOrgToCloud, unsaveOrgFromCloud } from "./data";
-import { loadSavedOrgIds, saveOrgIdLocally, unsaveOrgIdLocally } from "./storage";
 
 export function useSavedOrgs(universityId: string) {
   const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
@@ -19,8 +18,6 @@ export function useSavedOrgs(universityId: string) {
         setUserId(user.id);
         const ids = await fetchSavedOrgIds(user.id);
         if (!cancelled) setSavedIds(new Set(ids));
-      } else {
-        setSavedIds(new Set(loadSavedOrgIds()));
       }
       if (!cancelled) setLoaded(true);
     }
@@ -31,21 +28,19 @@ export function useSavedOrgs(universityId: string) {
   }, []);
 
   function toggleSave(orgId: string) {
+    if (!userId) return;
     setSavedIds((prev) => {
       const next = new Set(prev);
-      const wasSaved = next.has(orgId);
-      if (wasSaved) {
+      if (next.has(orgId)) {
         next.delete(orgId);
-        if (userId) unsaveOrgFromCloud(userId, orgId);
-        else unsaveOrgIdLocally(orgId);
+        unsaveOrgFromCloud(userId, orgId);
       } else {
         next.add(orgId);
-        if (userId) saveOrgToCloud(userId, orgId, universityId);
-        else saveOrgIdLocally(orgId);
+        saveOrgToCloud(userId, orgId, universityId);
       }
       return next;
     });
   }
 
-  return { savedIds, toggleSave, loaded };
+  return { savedIds, toggleSave, loaded, signedIn: userId !== null };
 }

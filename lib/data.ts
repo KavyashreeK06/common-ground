@@ -25,16 +25,27 @@ export async function fetchOrgs(universityId = "columbia"): Promise<{ orgs: Org[
   if (!isSupabaseConfigured) {
     return { orgs: localFallback, source: "local" };
   }
-  try {
+    try {
     const { data, error } = await supabase
       .from("org")
-      .select("id, university_id, name, category, description, contact_url, tags")
+      .select("id, university_id, name, category, secondary_categories, description, contact_url, tags")
       .eq("university_id", universityId);
 
     if (error) throw error;
     if (!data || data.length === 0) throw new Error("Supabase returned no orgs");
 
-    return { orgs: data as Org[], source: "supabase" };
+    const orgs: Org[] = data.map((row: any) => ({
+      id: row.id,
+      university_id: row.university_id,
+      name: row.name,
+      category: row.category,
+      secondaryCategories: row.secondary_categories ?? undefined,
+      description: row.description,
+      contact_url: row.contact_url,
+      tags: row.tags,
+    }));
+
+    return { orgs, source: "supabase" };
   } catch (err) {
     console.warn("[data] Falling back to local org data -- Supabase fetch failed:", err);
     return { orgs: localFallback, source: "local" };

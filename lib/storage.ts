@@ -24,31 +24,3 @@ export function clearProfile() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(KEY);
 }
-
-const SAVED_KEY = "campus_connections_saved_orgs";
-
-export function loadSavedOrgIds(): string[] {
-  if (typeof window === "undefined") return [];
-  const raw = window.localStorage.getItem(SAVED_KEY);
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-export function saveOrgIdLocally(orgId: string) {
-  if (typeof window === "undefined") return;
-  const ids = new Set(loadSavedOrgIds());
-  ids.add(orgId);
-  window.localStorage.setItem(SAVED_KEY, JSON.stringify(Array.from(ids)));
-}
-
-export function unsaveOrgIdLocally(orgId: string) {
-  if (typeof window === "undefined") return;
-  const ids = new Set(loadSavedOrgIds());
-  ids.delete(orgId);
-  window.localStorage.setItem(SAVED_KEY, JSON.stringify(Array.from(ids)));
-}

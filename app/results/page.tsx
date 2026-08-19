@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { loadProfile } from "../../lib/storage";
 import { LoadingPage } from "../../components/Loading";
-import { rankOrgs, explainMatch, describeOrgForComparison } from "../../lib/matching";
+import { rankOrgs, explainMatch, describeOrgForComparison, describeStudent } from "../../lib/matching";
 import { fetchOrgs, logQuizResult, submitFeedback, fetchProfileFromCloud, fetchOrgUpvoteCounts } from "../../lib/data";
 import { getCurrentUser } from "../../lib/auth";
 import { MatchResult, Org, StudentProfile } from "../../types";
@@ -12,11 +12,35 @@ import { EVENTS_BY_UNIVERSITY } from "../../data/events";
 import { MAJOR_ORG_KEYWORDS } from "../../data/majors";
 import { BACKGROUND_ORG_KEYWORDS } from "../../data/background";
 import { POSTGRAD_ORG_KEYWORDS } from "../../data/postgrad";
+import { RELIGION_ORG_KEYWORDS } from "../../data/religion";
+import { CAUSE_ORG_KEYWORDS } from "../../data/causes";
+import { findArchetypeResult, describeBlend } from "../../data/archetypes";
 import { recommendSection } from "../../content/belonging";
 import { CategoryIcon } from "../../components/CategoryIcon";
 import { SaveButton } from "../../components/SaveButton";
 import { useSavedOrgs } from "../../lib/useSavedOrgs";
-import { Award, ThumbsUp, ThumbsDown, Check, Plus } from "lucide-react";
+import {
+  Award, ThumbsUp, ThumbsDown, Check, Plus, Sliders,
+  Users, Heart, Compass, Clock, Palette, Trophy, Anchor, Settings, Flag, Briefcase, Footprints, Fingerprint,
+} from "lucide-react";
+
+const ARCHETYPE_ICONS: Record<string, typeof Users> = {
+  "Social Spark": Users,
+  "Inner-Circle Builder": Heart,
+  "Curious Wanderer": Compass,
+  "Steady Teammate": Clock,
+  "Creative Catalyst": Palette,
+  "Driven Challenger": Trophy,
+  "Community Anchor": Anchor,
+  "Behind-the-Scenes Architect": Settings,
+};
+
+const BADGE_ICONS: Record<string, typeof Flag> = {
+  "Purpose-driven": Flag,
+  "Career-minded": Briefcase,
+  "Movement-powered": Footprints,
+  "Identity-centered": Fingerprint,
+};
 
 type Vote = "up" | "down";
 const MAX_COMPARE = 3;
@@ -30,7 +54,7 @@ export default function ResultsPage() {
   const [votes, setVotes] = useState<Record<string, Vote>>({});
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const loggedRef = useRef(false);
-  const { savedIds, toggleSave } = useSavedOrgs(profile?.universityId ?? "columbia");
+  const { savedIds, toggleSave, signedIn } = useSavedOrgs(profile?.universityId ?? "columbia");
 
   useEffect(() => {
     async function load() {
@@ -77,11 +101,43 @@ export default function ResultsPage() {
   const interestKeywords = (profile.intellectualInterests ?? []).flatMap((m) => MAJOR_ORG_KEYWORDS[m] ?? []);
   const internationalKeywords = profile.isInternational ? ["cultural"] : [];
   const postgradKeywords = (profile.postGradInterests ?? []).flatMap((tag) => POSTGRAD_ORG_KEYWORDS[tag] ?? []);
-  const boostKeywords = [...(majorKeywords ?? []), ...backgroundKeywords, ...interestKeywords, ...internationalKeywords, ...postgradKeywords];
+  const religionKeywords = (profile.religiousTraditions ?? []).flatMap((tag) => RELIGION_ORG_KEYWORDS[tag] ?? []);
+  const causeKeywords = (profile.causes ?? []).flatMap((tag) => CAUSE_ORG_KEYWORDS[tag] ?? []);
+  const boostKeywords = [
+    ...(majorKeywords ?? []),
+    ...backgroundKeywords,
+    ...interestKeywords,
+    ...internationalKeywords,
+    ...postgradKeywords,
+    ...religionKeywords,
+    ...causeKeywords,
+  ];
   const matches = rankOrgs(profile.vector, orgs, undefined, 6, boostKeywords.length > 0 ? boostKeywords : undefined);
   const top3 = matches.slice(0, 3);
-  const rest = matches.slice(3);
-  const allShown = [...top3, ...rest];
+
+  const shownIds = new Set(top3.map((m) => m.org.id));
+  function spotlightPick(lensKeywords: string[]): MatchResult | null {
+    if (lensKeywords.length === 0) return null;
+    const ranked = rankOrgs(profile!.vector, orgs, undefined, orgs.length, lensKeywords);
+    const pick = ranked.find((m) => !shownIds.has(m.org.id));
+    if (pick) shownIds.add(pick.org.id);
+    return pick ?? null;
+  }
+  const culturalSpotlight = spotlightPick([...backgroundKeywords, ...religionKeywords]);
+  const causeSpotlight = spotlightPick(causeKeywords);
+  const careerSpotlight = spotlightPick([...(majorKeywords ?? []), ...postgradKeywords, ...interestKeywords]);
+  const spotlights = [
+    { label: "Best cultural / community fit", match: culturalSpotlight },
+    { label: "Best cause-driven fit", match: causeSpotlight },
+    { label: "Best career / academic fit", match: careerSpotlight },
+  ].filter((s): s is { label: string; match: MatchResult } => s.match !== null);
+
+  const rest = matches.slice(3).filter((m) => !shownIds.has(m.org.id));
+  const allShown = [...top3, ...spotlights.map((s) => s.match), ...rest];
+
+  const archetypeResult = findArchetypeResult(profile.vector);
+  const ArchetypeIcon = ARCHETYPE_ICONS[archetypeResult.primary.name];
+  const traits = describeStudent(profile.vector, 2);
 
   if (!loggedRef.current && matches.length > 0) {
     loggedRef.current = true;
@@ -129,7 +185,68 @@ export default function ResultsPage() {
         {profile.intellectualInterests && profile.intellectualInterests.length > 0 && (
           <> Also weighting orgs related to your academic interests.</>
         )}
+        {profile.religiousTraditions && profile.religiousTraditions.length > 0 && (
+          <> Also weighting orgs connected to the faith communities you shared.</>
+        )}
+        {profile.causes && profile.causes.length > 0 && (
+          <> Also weighting orgs connected to the causes you care about.</>
+        )}
       </p>
+
+      <div className="card" style={{ marginBottom: 20, borderColor: archetypeResult.primary.color }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              background: `${archetypeResult.primary.color}22`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <ArchetypeIcon size={28} strokeWidth={2} color={archetypeResult.primary.color} aria-hidden="true" />
+          </div>
+          <div>
+            <p style={{ margin: 0, fontSize: 12, color: "var(--ink-soft)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.03em" }}>
+              Your type
+            </p>
+            <h2 style={{ margin: "2px 0 0" }}>{describeBlend(archetypeResult)}</h2>
+          </div>
+        </div>
+        <p style={{ marginTop: 14, marginBottom: 12 }}>{archetypeResult.primary.blurb}</p>
+        {traits.length > 0 && (
+          <p style={{ margin: 0, fontSize: 14, color: "var(--ink-soft)" }}>
+            A couple things that stood out: you {traits[0]}{traits[1] ? ` and ${traits[1]}` : ""}.
+          </p>
+        )}
+        {archetypeResult.badges.length > 0 && (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
+            {archetypeResult.badges.map((badgeName) => {
+              const BadgeIcon = BADGE_ICONS[badgeName];
+              return (
+                <span key={badgeName} className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  <BadgeIcon size={12} strokeWidth={2} aria-hidden="true" />
+                  {badgeName}
+                </span>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ marginBottom: 28 }}>
+        <p style={{ margin: 0, fontSize: 14 }}>
+          This is a fun, algorithm-generated read on your answers -- not a diagnosis. The real way to
+          get a feel for a club is to show up to a meeting and meet the people in it.{" "}
+          <Link href={`/school/${universityId}/explore`} style={{ color: "var(--accent)", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 4 }}>
+            <Sliders size={13} strokeWidth={2} aria-hidden="true" />
+            Play with the sliders yourself →
+          </Link>
+        </p>
+      </div>
 
       <details style={{ marginBottom: 28, fontSize: 14, color: "var(--ink-soft)" }}>
         <summary style={{ cursor: "pointer", fontWeight: 600, color: "var(--ink)" }}>
@@ -208,9 +325,40 @@ export default function ResultsPage() {
             upvotes={upvoteCounts[m.org.id] ?? 0}
             saved={savedIds.has(m.org.id)}
             onToggleSave={() => toggleSave(m.org.id)}
+            signedIn={signedIn}
           />
         ))}
       </div>
+
+      {spotlights.length > 0 && (
+        <>
+          <h2>Different sides of you</h2>
+          <p className="subtitle" style={{ marginTop: -8 }}>
+            A few more picks, each based on just one thing you shared -- not already in your top matches above.
+          </p>
+          <div className="grid grid-2">
+            {spotlights.map(({ label, match }) => (
+              <div key={match.org.id}>
+                <span className="pill pill-terracotta" style={{ marginBottom: 8, display: "inline-block" }}>{label}</span>
+                <MatchCard
+                  org={match.org}
+                  score={match.score}
+                  explanation={explainMatch(profile.vector, match.org)}
+                  vote={votes[match.org.id]}
+                  onVote={(v) => handleVote(match.org.id, v)}
+                  comparing={compareIds.includes(match.org.id)}
+                  compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(match.org.id)}
+                  onToggleCompare={() => toggleCompare(match.org.id)}
+                  upvotes={upvoteCounts[match.org.id] ?? 0}
+                  saved={savedIds.has(match.org.id)}
+                  onToggleSave={() => toggleSave(match.org.id)}
+                  signedIn={signedIn}
+                />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {rest.length > 0 && (
         <>
@@ -230,6 +378,7 @@ export default function ResultsPage() {
                 upvotes={upvoteCounts[m.org.id] ?? 0}
                 saved={savedIds.has(m.org.id)}
                 onToggleSave={() => toggleSave(m.org.id)}
+                signedIn={signedIn}
               />
             ))}
           </div>
@@ -297,6 +446,7 @@ function MatchCard({
   upvotes,
   saved,
   onToggleSave,
+  signedIn,
 }: {
   org: Org;
   score: number;
@@ -310,23 +460,36 @@ function MatchCard({
   upvotes: number;
   saved: boolean;
   onToggleSave: () => void;
+  signedIn: boolean;
 }) {
   return (
     <div className="card" style={highlight ? { borderColor: "var(--accent)" } : undefined}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <h3>{org.name}</h3>
         <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-          <SaveButton saved={saved} onToggle={onToggleSave} />
+          {signedIn && <SaveButton saved={saved} onToggle={onToggleSave} />}
           <span className="match-score">
             <Award size={14} strokeWidth={2} aria-hidden="true" />
             <span>{score}%</span>
           </span>
         </div>
       </div>
-      <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-        <CategoryIcon category={org.category} />
-        {org.category}
-      </span>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+        <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+          <CategoryIcon category={org.category} />
+          {org.category}
+        </span>
+        {(org.secondaryCategories ?? []).map((c) => (
+          <span
+            key={c}
+            className="pill"
+            style={{ display: "inline-flex", alignItems: "center", gap: 5, opacity: 0.7 }}
+          >
+            <CategoryIcon category={c} />
+            {c}
+          </span>
+        ))}
+      </div>
       {upvotes > 0 && (
         <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
           {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit

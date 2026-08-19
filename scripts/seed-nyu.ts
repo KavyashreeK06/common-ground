@@ -17,6 +17,7 @@ async function main() {
     university_id: seed.university.id,
     name: o.name,
     category: o.category,
+    secondary_categories: (o as any).secondaryCategories ?? null,
     description: o.description,
     tags: o.tags,
   }));

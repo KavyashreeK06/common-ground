@@ -28,6 +28,9 @@ export const BACKGROUND_ORG_KEYWORDS: Record<string, string[]> = {
   "Native American / Indigenous": ["native american", "indigenous"],
   "Pacific Islander": ["hawai", "pacific"],
   "European heritage": ["hellenic", "armenian", "polish", "french cultural", "european society"],
-  "LGBTQ+": ["queer", "lgbt", "pride", "q&a", "cqa"],
+  "LGBTQ+": [
+    "queer", "lgbt", "pride", "q&a", "cqa", "trans", "gay", "lesbian", "bisexual",
+    "shades", "haus of violets", "t-party", "new masculinities", "campgrrl", "ostem", "keshet",
+  ],
   "First-generation / low-income": ["first-generation", "low-income"],
 };

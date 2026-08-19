@@ -10,6 +10,8 @@ import { saveProfile } from "../../lib/storage";
 import { COLUMBIA_MAJORS } from "../../data/majors";
 import { BACKGROUND_TAGS } from "../../data/background";
 import { POSTGRAD_TAGS } from "../../data/postgrad";
+import { RELIGION_TAGS } from "../../data/religion";
+import { CAUSE_TAGS } from "../../data/causes";
 import { UNIVERSITIES, DEFAULT_UNIVERSITY_ID } from "../../data/universities";
 import { GOAL_TAGS, GoalTag, QuizAnswerOption, QuizQuestion, StudentYear, STUDENT_YEARS } from "../../types";
 
@@ -49,12 +51,15 @@ function QuizInner() {
 
   const asksMajor = year !== "freshman";
 
-  const backgroundStepIndex = 1;
-  const interestsStepIndex = 2;
-  const internationalStepIndex = 3;
-  const postgradStepIndex = 4;
-  const majorStepIndex = asksMajor ? 5 : null;
-  const questionsStartAt = asksMajor ? 6 : 5;
+  let stepCounter = 1;
+  const backgroundStepIndex = stepCounter++;
+  const interestsStepIndex = asksMajor ? null : stepCounter++;
+  const internationalStepIndex = stepCounter++;
+  const postgradStepIndex = stepCounter++;
+  const religionStepIndex = stepCounter++;
+  const causesStepIndex = stepCounter++;
+  const majorStepIndex = asksMajor ? stepCounter++ : null;
+  const questionsStartAt = stepCounter;
   const totalSteps = questionsStartAt + questions.length;
   const preQuizStepCount = questionsStartAt;
 
@@ -65,6 +70,8 @@ function QuizInner() {
   const [interests, setInterests] = useState<string[]>([]);
   const [isInternational, setIsInternational] = useState<boolean | null>(null);
   const [postgrad, setPostgrad] = useState<string[]>([]);
+  const [religiousTraditions, setReligiousTraditions] = useState<string[]>([]);
+  const [causes, setCauses] = useState<string[]>([]);
   const [major, setMajor] = useState<string | null>(null);
   const [answers, setAnswers] = useState<QuizAnswerOption[]>([]);
 
@@ -82,6 +89,28 @@ function QuizInner() {
   function togglePostgrad(tag: string) {
     setPostgrad((prev) => (prev.includes(tag) ? prev.filter((x) => x !== tag) : [...prev, tag]));
   }
+  function toggleReligion(tag: string) {
+    setReligiousTraditions((prev) => (prev.includes(tag) ? prev.filter((x) => x !== tag) : [...prev, tag]));
+  }
+  function toggleCause(tag: string) {
+    setCauses((prev) => {
+      if (tag === "None of the above") {
+        return prev.includes(tag) ? [] : ["None of the above"];
+      }
+      const withoutNone = prev.filter((x) => x !== "None of the above");
+      return withoutNone.includes(tag)
+        ? withoutNone.filter((x) => x !== tag)
+        : [...withoutNone, tag];
+    });
+  }
+
+  function goBack() {
+    if (step === 0) return;
+    if (step > questionsStartAt) {
+      setAnswers((prev) => prev.slice(0, -1));
+    }
+    setStep((s) => s - 1);
+  }
 
   function answerQuestion(option: QuizAnswerOption) {
     const next = [...answers, option];
@@ -98,6 +127,8 @@ function QuizInner() {
         intellectualInterests: interests.length > 0 ? interests : undefined,
         isInternational: isInternational ?? undefined,
         postGradInterests: postgrad.length > 0 ? postgrad : undefined,
+        religiousTraditions: religiousTraditions.length > 0 ? religiousTraditions : undefined,
+        causes: causes.length > 0 ? causes : undefined,
         name: name.trim() || undefined,
         universityId,
       };
@@ -112,7 +143,7 @@ function QuizInner() {
   }
 
   if (loadingQuestions) {
-        return <LoadingPage label="Loading quiz..." />;
+    return <LoadingPage label="Loading quiz..." />;
   }
 
   if (!started) {
@@ -198,7 +229,8 @@ function QuizInner() {
               </button>
             ))}
           </div>
-          <div style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
             <button onClick={() => setStep(step + 1)}>
               {background.length > 0 ? "Continue" : "Skip this step"}
             </button>
@@ -225,7 +257,8 @@ function QuizInner() {
               </button>
             ))}
           </div>
-          <div style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
             <button onClick={() => setStep(step + 1)}>
               {interests.length > 0 ? "Continue" : "Skip this step"}
             </button>
@@ -256,7 +289,8 @@ function QuizInner() {
               No
             </button>
           </div>
-          <div style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
             <button onClick={() => setStep(step + 1)}>
               {isInternational === null ? "Skip this step" : "Continue"}
             </button>
@@ -283,9 +317,65 @@ function QuizInner() {
               </button>
             ))}
           </div>
-          <div style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
             <button onClick={() => setStep(step + 1)}>
               {postgrad.length > 0 ? "Continue" : "Skip this step"}
+            </button>
+          </div>
+        </>
+      )}
+
+      {step === religionStepIndex && (
+        <>
+          <h1>Do you connect with a religious or spiritual tradition?</h1>
+          <p className="subtitle">
+            Optional -- helps us surface relevant faith communities. Pick as many as apply, or skip.
+          </p>
+          <div className="grid grid-2">
+            {RELIGION_TAGS.map((tag) => (
+              <button
+                key={tag}
+                className={`option-btn ${religiousTraditions.includes(tag) ? "selected" : ""}`}
+                onClick={() => toggleReligion(tag)}
+                type="button"
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
+            <button onClick={() => setStep(step + 1)}>
+              {religiousTraditions.length > 0 ? "Continue" : "Skip this step"}
+            </button>
+          </div>
+        </>
+      )}
+
+      {step === causesStepIndex && (
+        <>
+          <h1>Are there causes you especially care about?</h1>
+          <p className="subtitle">
+            Optional -- helps us surface relevant advocacy and service orgs. Pick as many as apply,
+            or skip.
+          </p>
+          <div className="grid grid-2">
+            {CAUSE_TAGS.map((tag) => (
+              <button
+                key={tag}
+                className={`option-btn ${causes.includes(tag) ? "selected" : ""}`}
+                onClick={() => toggleCause(tag)}
+                type="button"
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+          <div style={{ marginTop: 24, display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
+            <button onClick={() => setStep(step + 1)}>
+              {causes.length > 0 ? "Continue" : "Skip this step"}
             </button>
           </div>
         </>
@@ -308,9 +398,12 @@ function QuizInner() {
               <option key={m} value={m}>{m}</option>
             ))}
           </select>
-          <button onClick={() => setStep(step + 1)} disabled={!major}>
-            Continue
-          </button>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
+            <button onClick={() => setStep(step + 1)} disabled={!major}>
+              Continue
+            </button>
+          </div>
         </>
       )}
 
@@ -330,6 +423,9 @@ function QuizInner() {
               </button>
             ))}
           </div>
+          <div style={{ marginTop: 20 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
+          </div>
         </>
       )}
     </main>
@@ -338,7 +434,7 @@ function QuizInner() {
 
 export default function QuizPage() {
   return (
-       <Suspense fallback={<LoadingPage />}>
+    <Suspense fallback={<LoadingPage />}>
       <QuizInner />
     </Suspense>
   );

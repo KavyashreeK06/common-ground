@@ -12,6 +12,7 @@ export const AXES = [
 ] as const;
 
 export type Axis = (typeof AXES)[number];
+
 export type AxisVector = Record<Axis, number>;
 
 export interface University {
@@ -25,6 +26,7 @@ export interface Org {
   university_id: string;
   name: string;
   category: string;
+  secondaryCategories?: string[];
   description: string;
   contact_url?: string | null;
   tags: AxisVector;
@@ -39,6 +41,7 @@ export interface QuizQuestion {
   id: string;
   text: string;
   options: QuizAnswerOption[];
+  audience_years?: StudentYear[];
 }
 
 export interface MatchResult {
@@ -69,9 +72,11 @@ export interface StudentProfile {
   background?: string[];
   intellectualInterests?: string[];
   isInternational?: boolean;
-  postGradInterests?: string[]; // e.g. pre-med, pre-law, grad school -- used only for a matching boost
-  name?: string; // optional, used only to personalize copy (e.g. "Hey Alex, here's...")
-  universityId?: string; // defaults to "columbia" when absent, for backward compatibility with profiles saved before multi-university support
+  postGradInterests?: string[];
+  religiousTraditions?: string[];
+  causes?: string[];
+  name?: string;
+  universityId?: string;
 }
 
 export type EventCategory =

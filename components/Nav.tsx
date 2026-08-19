@@ -52,6 +52,7 @@ export default function Nav() {
       <Link href="/" className="nav-brand">Common Ground</Link>
       {currentSchool && (
         <span
+          className="school-chip"
           style={{ display: "inline-flex", alignItems: "center", gap: 6, marginRight: 20, fontSize: 13, color: "var(--ink-soft)", fontWeight: 500 }}
         >
           <SchoolFlag color={currentSchool.color} accentColor={currentSchool.accentColor} size={13} />

@@ -19,6 +19,8 @@ export function SaveButton({
         justifyContent: "center",
         width: 32,
         height: 32,
+        padding: 0,
+        lineHeight: 1,
         borderRadius: "50%",
         border: "none",
         background: "transparent",

@@ -6,10 +6,10 @@ import type { User } from "@supabase/supabase-js";
 import { Org } from "../../../../types";
 import { fetchOrgs, submitOrgEdit, fetchOrgUpvoteCounts } from "../../../../lib/data";
 import { getCurrentUser } from "../../../../lib/auth";
-import { describeOrgForComparison } from "../../../../lib/matching";
+import { describeOrgForComparison, findSimilarOrgs } from "../../../../lib/matching";
 import { CategoryIcon } from "../../../../components/CategoryIcon";
 import { UNIVERSITIES } from "../../../../data/universities";
-import { Check, Plus, SearchX, Pencil } from "lucide-react";
+import { Check, Plus, SearchX, Pencil, Shuffle } from "lucide-react";
 import { LoadingSpinner } from "../../../../components/Loading";
 import { SaveButton } from "../../../../components/SaveButton";
 import { useSavedOrgs } from "../../../../lib/useSavedOrgs";
@@ -18,7 +18,7 @@ const MAX_COMPARE = 3;
 
 export default function ClubsPage({ params }: { params: { schoolId: string } }) {
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
-  const { savedIds, toggleSave } = useSavedOrgs(params.schoolId);
+  const { savedIds, toggleSave, signedIn } = useSavedOrgs(params.schoolId);
 
   const [orgs, setOrgs] = useState<Org[]>([]);
   const [dataSource, setDataSource] = useState<"supabase" | "local" | null>(null);
@@ -43,14 +43,21 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
   }, [school]);
 
   const categories = useMemo(() => {
-    const set = new Set(orgs.map((o) => o.category));
+    const set = new Set<string>();
+    orgs.forEach((o) => {
+      set.add(o.category);
+      (o.secondaryCategories ?? []).forEach((c) => set.add(c));
+    });
     return ["all", ...Array.from(set).sort()];
   }, [orgs]);
 
   const filtered = useMemo(() => {
     return orgs.filter((o) => {
       const matchesQuery = o.name.toLowerCase().includes(query.toLowerCase());
-      const matchesCategory = category === "all" || o.category === category;
+      const matchesCategory =
+        category === "all" ||
+        o.category === category ||
+        (o.secondaryCategories ?? []).includes(category);
       return matchesQuery && matchesCategory;
     });
   }, [orgs, query, category]);
@@ -161,6 +168,7 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
                 <ClubCard
                   key={o.id}
                   org={o}
+                  allOrgs={orgs}
                   comparing={compareIds.includes(o.id)}
                   compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
                   onToggleCompare={() => toggleCompare(o.id)}
@@ -168,6 +176,7 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
                   user={user}
                   saved={savedIds.has(o.id)}
                   onToggleSave={() => toggleSave(o.id)}
+                  signedIn={signedIn}
                 />
               ))}
             </div>
@@ -196,6 +205,7 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
 
 function ClubCard({
   org,
+  allOrgs,
   comparing,
   compareDisabled,
   onToggleCompare,
@@ -203,8 +213,10 @@ function ClubCard({
   user,
   saved,
   onToggleSave,
+  signedIn,
 }: {
   org: Org;
+  allOrgs: Org[];
   comparing: boolean;
   compareDisabled: boolean;
   onToggleCompare: () => void;
@@ -212,6 +224,7 @@ function ClubCard({
   user: User | null;
   saved: boolean;
   onToggleSave: () => void;
+  signedIn: boolean;
 }) {
   const [editing, setEditing] = useState(false);
   const [description, setDescription] = useState(org.description);
@@ -219,6 +232,7 @@ function ClubCard({
   const [contact, setContact] = useState(user?.email ?? "");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showSimilar, setShowSimilar] = useState(false);
 
   async function handleSubmit() {
     if (!description.trim()) return;
@@ -243,12 +257,24 @@ function ClubCard({
     <div className="card">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <h3 style={{ margin: 0 }}>{org.name}</h3>
-        <SaveButton saved={saved} onToggle={onToggleSave} />
+        {signedIn && <SaveButton saved={saved} onToggle={onToggleSave} />}
       </div>
-      <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-        <CategoryIcon category={org.category} />
-        {org.category}
-      </span>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+        <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+          <CategoryIcon category={org.category} />
+          {org.category}
+        </span>
+        {(org.secondaryCategories ?? []).map((c) => (
+          <span
+            key={c}
+            className="pill"
+            style={{ display: "inline-flex", alignItems: "center", gap: 5, opacity: 0.7 }}
+          >
+            <CategoryIcon category={c} />
+            {c}
+          </span>
+        ))}
+      </div>
       {upvotes > 0 && (
         <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
           {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit
@@ -258,7 +284,7 @@ function ClubCard({
         <p style={{ marginTop: 10, marginBottom: 0, color: "var(--ink-soft)" }}>{org.description}</p>
       )}
 
-      <div style={{ display: "flex", gap: 16, marginTop: 12, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 12, marginTop: 12, alignItems: "center", flexWrap: "wrap" }}>
         <button
           type="button"
           className={`compare-toggle ${comparing ? "active" : ""}`}
@@ -295,7 +321,30 @@ function ClubCard({
             )}
           </button>
         )}
+        <button
+          type="button"
+          className="compare-toggle"
+          onClick={() => setShowSimilar((v) => !v)}
+          style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
+        >
+          <Shuffle size={13} strokeWidth={2} aria-hidden="true" />
+          {showSimilar ? "Hide similar clubs" : "View similar clubs"}
+        </button>
       </div>
+
+      {showSimilar && (
+        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid var(--border)" }}>
+          <p style={{ fontSize: 13, fontWeight: 600, margin: "0 0 8px" }}>
+            Clubs with a similar personality profile:
+          </p>
+          {findSimilarOrgs(org, allOrgs, 4).map((r) => (
+            <div key={r.org.id} style={{ display: "flex", justifyContent: "space-between", fontSize: 13, padding: "5px 0" }}>
+              <span>{r.org.name}</span>
+              <span style={{ color: "var(--ink-soft)" }}>{r.score}% similar</span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {editing && status !== "success" && (
         <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px solid var(--border)" }}>

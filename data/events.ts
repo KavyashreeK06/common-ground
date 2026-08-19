@@ -150,7 +150,64 @@ export const TEMPLATE_MAJOR_EVENTS: CampusEvent[] = [
   },
 ];
 
-export const ALL_COLUMBIA_EVENTS: CampusEvent[] = [...COLUMBIA_EVENTS, ...TEMPLATE_MAJOR_EVENTS];
+export const COLUMBIA_HERITAGE_MONTH_EVENTS: CampusEvent[] = [
+  {
+    id: "asian-pacific-american-heritage-month",
+    university_id: "columbia",
+    name: "Asian Pacific American Heritage Month",
+    category: "cultural",
+    description:
+      "A month of programming celebrating Asian and Pacific Islander American heritage, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "April",
+  },
+  {
+    id: "black-history-month",
+    university_id: "columbia",
+    name: "Black History Month",
+    category: "cultural",
+    description:
+      "A month of programming celebrating Black history and culture, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "February",
+  },
+  {
+    id: "latinx-heritage-month",
+    university_id: "columbia",
+    name: "Latinx Heritage Month",
+    category: "cultural",
+    description:
+      "A month of programming celebrating Latinx heritage and culture, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "September to October",
+  },
+  {
+    id: "native-american-heritage-month",
+    university_id: "columbia",
+    name: "Native American Heritage Month",
+    category: "cultural",
+    description:
+      "A month of programming celebrating Native American history and culture, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "November",
+  },
+  {
+    id: "queer-awareness-month",
+    university_id: "columbia",
+    name: "Queer Awareness Month (QuAM)",
+    category: "cultural",
+    description:
+      "A month of programming celebrating queer identity and community, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "April",
+  },
+  {
+    id: "womens-history-month",
+    university_id: "columbia",
+    name: "Women's History Month",
+    category: "cultural",
+    description:
+      "A month of programming celebrating women's history and achievements, hosted by Columbia Undergraduate Student Life alongside student cultural groups.",
+    timing: "March",
+  },
+];
+
+export const ALL_COLUMBIA_EVENTS: CampusEvent[] = [...COLUMBIA_EVENTS, ...TEMPLATE_MAJOR_EVENTS, ...COLUMBIA_HERITAGE_MONTH_EVENTS];
 
 export const NYU_EVENTS: CampusEvent[] = [
   {
