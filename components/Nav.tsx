@@ -20,7 +20,17 @@ export default function Nav() {
     return unsubscribe;
   }, []);
 
+  // Figure out which school we're currently "in", checked in priority
+  // order since different pages carry that info differently:
+  //  1. Path segment, e.g. /school/nyu/clubs -- most explicit, current-page choice.
+  //  2. This page's own query string, e.g. /quiz?school=nyu.
+  //  3. The locally saved quiz profile's school -- covers pages like /results
+  //     that don't put the school in their own URL at all. Deliberately
+  //     skipped on the homepage itself ("/") -- that page's whole purpose is
+  //     showing the neutral "choose your school" state, so a stale saved
+  //     profile from a past visit shouldn't make it silently assume a school.
   const segments = pathname.split("/").filter(Boolean);
+  const isHomepage = pathname === "/";
   const pathSchoolId = segments[0] === "school" && UNIVERSITIES.some((u) => u.id === segments[1])
     ? segments[1]
     : null;
@@ -34,7 +44,7 @@ export default function Nav() {
     setProfileSchoolId(profile?.universityId ?? null);
   }, [pathname]);
 
-  const schoolId = pathSchoolId ?? querySchoolId ?? profileSchoolId;
+  const schoolId = pathSchoolId ?? querySchoolId ?? (isHomepage ? null : profileSchoolId);
   const currentSchool = schoolId ? UNIVERSITIES.find((u) => u.id === schoolId) ?? null : null;
 
   const LINKS = schoolId
