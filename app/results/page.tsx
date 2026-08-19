@@ -173,24 +173,26 @@ export default function ResultsPage() {
     return matchesYear;
   }).slice(0, 3);
 
+    const extraFactors: string[] = [];
+  if (profile.background && profile.background.length > 0) extraFactors.push("cultural and identity-based orgs");
+  if (profile.intellectualInterests && profile.intellectualInterests.length > 0) extraFactors.push("your academic interests");
+  if (profile.religiousTraditions && profile.religiousTraditions.length > 0) extraFactors.push("the faith communities you shared");
+  if (profile.causes && profile.causes.length > 0) extraFactors.push("the causes you care about");
+
+  function joinWithAnd(items: string[]): string {
+    if (items.length === 0) return "";
+    if (items.length === 1) return items[0];
+    if (items.length === 2) return `${items[0]} and ${items[1]}`;
+    return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+  }
+
   return (
     <main className="page">
       <h1>{profile.name ? `${profile.name}'s matches` : "Your matches"}</h1>
       <p className="subtitle">
         {profile.name ? `${profile.name}, here's` : "Here's"} where you're most likely to find your people.
-        {profile.major && <> Showing extra weight to orgs and events relevant to <strong>{profile.major}</strong>.</>}
-        {profile.background && profile.background.length > 0 && (
-          <> Also weighting cultural and identity-based orgs relevant to what you shared.</>
-        )}
-        {profile.intellectualInterests && profile.intellectualInterests.length > 0 && (
-          <> Also weighting orgs related to your academic interests.</>
-        )}
-        {profile.religiousTraditions && profile.religiousTraditions.length > 0 && (
-          <> Also weighting orgs connected to the faith communities you shared.</>
-        )}
-        {profile.causes && profile.causes.length > 0 && (
-          <> Also weighting orgs connected to the causes you care about.</>
-        )}
+        {profile.major && <> We're also giving extra weight to orgs and events relevant to <strong>{profile.major}</strong>.</>}
+        {extraFactors.length > 0 && <> We're also weighting {joinWithAnd(extraFactors)}.</>}
       </p>
 
       <div className="card" style={{ marginBottom: 20, borderColor: archetypeResult.primary.color }}>
