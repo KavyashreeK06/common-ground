@@ -59,9 +59,10 @@ function QuizInner() {
   const religionStepIndex = stepCounter++;
   const causesStepIndex = stepCounter++;
   const majorStepIndex = asksMajor ? stepCounter++ : null;
+  const preQuizStepCount = stepCounter;
+  const transitionStepIndex = stepCounter++;
   const questionsStartAt = stepCounter;
   const totalSteps = questionsStartAt + questions.length;
-  const preQuizStepCount = questionsStartAt;
 
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
@@ -111,6 +112,30 @@ function QuizInner() {
     }
     setStep((s) => s - 1);
   }
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key !== "Enter") return;
+      if (!started) {
+        setStarted(true);
+        return;
+      }
+      if (step === 0) {
+        if (goals.length > 0) setStep(1);
+        return;
+      }
+      if (step === majorStepIndex) {
+        if (major) setStep(step + 1);
+        return;
+      }
+      if (step >= questionsStartAt) {
+        return;
+      }
+      setStep(step + 1);
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [started, step, goals, major, majorStepIndex, questionsStartAt]);
 
   function answerQuestion(option: QuizAnswerOption) {
     const next = [...answers, option];
@@ -403,6 +428,19 @@ function QuizInner() {
             <button onClick={() => setStep(step + 1)} disabled={!major}>
               Continue
             </button>
+          </div>
+        </>
+      )}
+
+      {step === transitionStepIndex && (
+        <>
+          <h1>Now for the fun part</h1>
+          <p className="subtitle">
+            {questions.length} quick personality questions. Answer with your gut -- there's no wrong answer.
+          </p>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button type="button" className="btn-outline" onClick={goBack}>← Back</button>
+            <button onClick={() => setStep(step + 1)}>Let's go</button>
           </div>
         </>
       )}
