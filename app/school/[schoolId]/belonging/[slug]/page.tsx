@@ -7,7 +7,9 @@ export function generateStaticParams() {
   const params: { schoolId: string; slug: string }[] = [];
   for (const u of UNIVERSITIES) {
     for (const s of BELONGING_SECTIONS) {
-      params.push({ schoolId: u.id, slug: s.slug });
+      if (!s.universityIds || s.universityIds.includes(u.id)) {
+        params.push({ schoolId: u.id, slug: s.slug });
+      }
     }
   }
   return params;
@@ -17,12 +19,16 @@ export default function BelongingArticlePage({ params }: { params: { schoolId: s
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
   if (!school) notFound();
 
-  const index = BELONGING_SECTIONS.findIndex((s) => s.slug === params.slug);
+  const applicableSections = BELONGING_SECTIONS.filter(
+    (s) => !s.universityIds || s.universityIds.includes(school.id)
+  );
+
+  const index = applicableSections.findIndex((s) => s.slug === params.slug);
   if (index === -1) notFound();
 
-  const article = BELONGING_SECTIONS[index];
-  const prev = index > 0 ? BELONGING_SECTIONS[index - 1] : null;
-  const next = index < BELONGING_SECTIONS.length - 1 ? BELONGING_SECTIONS[index + 1] : null;
+  const article = applicableSections[index];
+  const prev = index > 0 ? applicableSections[index - 1] : null;
+  const next = index < applicableSections.length - 1 ? applicableSections[index + 1] : null;
 
   return (
     <main className="page">

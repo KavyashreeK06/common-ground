@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { fetchQuestions, saveProfileToCloud } from "../../lib/data";
+import { LoadingPage } from "../../components/Loading";
 import { getCurrentUser } from "../../lib/auth";
 import { buildStudentVector } from "../../lib/matching";
 import { saveProfile } from "../../lib/storage";
@@ -111,7 +112,7 @@ function QuizInner() {
   }
 
   if (loadingQuestions) {
-    return <main className="page">Loading quiz...</main>;
+        return <LoadingPage label="Loading quiz..." />;
   }
 
   if (!started) {
@@ -337,7 +338,7 @@ function QuizInner() {
 
 export default function QuizPage() {
   return (
-    <Suspense fallback={<main className="page">Loading...</main>}>
+       <Suspense fallback={<LoadingPage />}>
       <QuizInner />
     </Suspense>
   );

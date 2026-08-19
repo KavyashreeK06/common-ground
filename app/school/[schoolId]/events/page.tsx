@@ -5,6 +5,7 @@ import Link from "next/link";
 import { EVENTS_BY_UNIVERSITY } from "../../../../data/events";
 import { UNIVERSITIES } from "../../../../data/universities";
 import { EventCategory, STUDENT_YEARS, StudentYear } from "../../../../types";
+import { CalendarX } from "lucide-react";
 
 const CATEGORY_LABELS: Record<EventCategory, string> = {
   school_tradition: "School tradition",
@@ -81,7 +82,13 @@ export default function EventsPage({ params }: { params: { schoolId: string } })
             )}
           </div>
         ))}
-        {filtered.length === 0 && <p>No events match those filters.</p>}
+        {filtered.length === 0 && (
+          <div className="empty-state" style={{ gridColumn: "1 / -1" }}>
+            <CalendarX size={28} strokeWidth={1.5} aria-hidden="true" />
+            <p style={{ margin: 0, fontWeight: 600 }}>No events match those filters</p>
+            <p style={{ margin: 0, fontSize: 14 }}>Try a different category or year.</p>
+          </div>
+        )}
       </div>
     </main>
   );

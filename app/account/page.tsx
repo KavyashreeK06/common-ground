@@ -1,10 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { LoadingPage } from "../../components/Loading";
 import type { User } from "@supabase/supabase-js";
 import { sendMagicLink, signOut, getCurrentUser, onAuthChange } from "../../lib/auth";
+import { UNIVERSITIES } from "../../data/universities";
 
-export default function AccountPage() {
+function AccountInner() {
+  const params = useSearchParams();
+  const schoolId = params.get("school");
+  const school = UNIVERSITIES.find((u) => u.id === schoolId);
+  const emailPlaceholder = school ? `you@${school.domain}` : "you@school.edu";
+
   const [user, setUser] = useState<User | null>(null);
   const [checkedAuth, setCheckedAuth] = useState(false);
   const [email, setEmail] = useState("");
@@ -33,7 +41,7 @@ export default function AccountPage() {
   }
 
   if (!checkedAuth) {
-    return <main className="page">Loading...</main>;
+    return <LoadingPage />;
   }
 
   if (user) {
@@ -46,6 +54,13 @@ export default function AccountPage() {
             Your quiz profile now saves to your account, so it'll follow you if you retake the
             quiz on another device. Any club edits you suggest are also linked to your account.
           </p>
+          {school && (
+            <p style={{ marginBottom: 16 }}>
+              <a href={`/school/${school.id}/saved`} style={{ color: "var(--accent)", fontWeight: 600 }}>
+                View your saved organizations →
+              </a>
+            </p>
+          )}
           <button type="button" onClick={() => signOut()}>Sign out</button>
         </div>
       </main>
@@ -54,7 +69,7 @@ export default function AccountPage() {
 
   return (
     <main className="page">
-      <h1>Sign in</h1>
+      <h1>Sign in{school ? ` to ${school.shortName}` : ""}</h1>
       <p className="subtitle">
         Optional -- you can use the whole site without an account. Signing in just makes your quiz
         results follow you across devices, and links any club edits you suggest to your account.
@@ -69,7 +84,7 @@ export default function AccountPage() {
             <input
               className="input"
               type="email"
-              placeholder="you@columbia.edu"
+              placeholder={emailPlaceholder}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               style={{ width: "100%", marginBottom: 12 }}
@@ -86,5 +101,13 @@ export default function AccountPage() {
         )}
       </div>
     </main>
+  );
+}
+
+export default function AccountPage() {
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <AccountInner />
+    </Suspense>
   );
 }

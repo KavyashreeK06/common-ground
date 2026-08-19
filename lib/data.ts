@@ -202,8 +202,51 @@ export async function fetchOrgUpvoteCounts(): Promise<Record<string, number>> {
       counts[row.org_id] = (counts[row.org_id] ?? 0) + 1;
     }
     return counts;
-  } catch (err) {
+    } catch (err) {
     console.warn("[data] Could not fetch social proof counts:", err);
     return {};
+  }
+}
+
+export async function fetchSavedOrgIds(userId: string): Promise<string[]> {
+  if (!isSupabaseConfigured) return [];
+  try {
+    const { data, error } = await supabase
+      .from("saved_org")
+      .select("org_id")
+      .eq("user_id", userId);
+    if (error) throw error;
+    return (data ?? []).map((row) => row.org_id);
+  } catch (err) {
+    console.warn("[data] Could not fetch saved orgs:", err);
+    return [];
+  }
+}
+
+export async function saveOrgToCloud(userId: string, orgId: string, universityId: string): Promise<void> {
+  if (!isSupabaseConfigured) return;
+  try {
+    const { error } = await supabase.from("saved_org").upsert({
+      user_id: userId,
+      org_id: orgId,
+      university_id: universityId,
+    });
+    if (error) throw error;
+  } catch (err) {
+    console.warn("[data] Could not save org (non-blocking):", err);
+  }
+}
+
+export async function unsaveOrgFromCloud(userId: string, orgId: string): Promise<void> {
+  if (!isSupabaseConfigured) return;
+  try {
+    const { error } = await supabase
+      .from("saved_org")
+      .delete()
+      .eq("user_id", userId)
+      .eq("org_id", orgId);
+    if (error) throw error;
+  } catch (err) {
+    console.warn("[data] Could not unsave org (non-blocking):", err);
   }
 }

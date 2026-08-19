@@ -39,7 +39,7 @@ export default function SchoolHomePage({ params }: { params: { schoolId: string 
         ))}
       </div>
 
-    <h2>Or explore first</h2>
+      <h2>Or explore first</h2>
       <div className="grid grid-4">
         <Link href={`/school/${school.id}/belonging`} className="card" style={{ textDecoration: "none" }}>
           <h3>What belonging looks like here</h3>
@@ -57,6 +57,12 @@ export default function SchoolHomePage({ params }: { params: { schoolId: string 
           <h3>See what's coming up</h3>
           <p style={{ margin: 0, color: "var(--ink-soft)" }}>
             School traditions and events specific to your year or major.
+          </p>
+        </Link>
+        <Link href={`/school/${school.id}/explore`} className="card" style={{ textDecoration: "none" }}>
+          <h3>Explore by feel</h3>
+          <p style={{ margin: 0, color: "var(--ink-soft)" }}>
+            Skip the quiz -- drag sliders directly and see matches update live.
           </p>
         </Link>
       </div>

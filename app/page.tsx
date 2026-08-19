@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { UNIVERSITIES } from "../data/universities";
+import { SchoolFlag } from "../components/SchoolFlag";
 
 export default function HomePage() {
   return (
@@ -14,9 +15,12 @@ export default function HomePage() {
 
       <h2>Choose your school</h2>
       <div className="grid grid-2">
-        {UNIVERSITIES.map((u) => (
+          {UNIVERSITIES.map((u) => (
           <Link key={u.id} href={`/school/${u.id}`} className="year-card">
-            <span className="year-card-label">{u.name}</span>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+              <SchoolFlag color={u.color} accentColor={u.accentColor} size={16} />
+              <span className="year-card-label">{u.name}</span>
+            </div>
           </Link>
         ))}
       </div>

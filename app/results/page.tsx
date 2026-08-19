@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { loadProfile } from "../../lib/storage";
+import { LoadingPage } from "../../components/Loading";
 import { rankOrgs, explainMatch, describeOrgForComparison } from "../../lib/matching";
 import { fetchOrgs, logQuizResult, submitFeedback, fetchProfileFromCloud, fetchOrgUpvoteCounts } from "../../lib/data";
 import { getCurrentUser } from "../../lib/auth";
@@ -12,6 +13,10 @@ import { MAJOR_ORG_KEYWORDS } from "../../data/majors";
 import { BACKGROUND_ORG_KEYWORDS } from "../../data/background";
 import { POSTGRAD_ORG_KEYWORDS } from "../../data/postgrad";
 import { recommendSection } from "../../content/belonging";
+import { CategoryIcon } from "../../components/CategoryIcon";
+import { SaveButton } from "../../components/SaveButton";
+import { useSavedOrgs } from "../../lib/useSavedOrgs";
+import { Award, ThumbsUp, ThumbsDown, Check, Plus } from "lucide-react";
 
 type Vote = "up" | "down";
 const MAX_COMPARE = 3;
@@ -25,6 +30,7 @@ export default function ResultsPage() {
   const [votes, setVotes] = useState<Record<string, Vote>>({});
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const loggedRef = useRef(false);
+  const { savedIds, toggleSave } = useSavedOrgs(profile?.universityId ?? "columbia");
 
   useEffect(() => {
     async function load() {
@@ -56,13 +62,13 @@ export default function ResultsPage() {
       <main className="page">
         <h1>No quiz results yet</h1>
         <p className="subtitle">Take the quiz first so we can find your matches.</p>
-                <Link href="/" className="btn">Choose your school</Link>
+        <Link href="/" className="btn">Choose your school</Link>
       </main>
     );
   }
 
   if (!loaded || !profile) {
-    return <main className="page">Loading...</main>;
+    return <LoadingPage />;
   }
 
   const universityId = profile.universityId ?? "columbia";
@@ -200,6 +206,8 @@ export default function ResultsPage() {
             compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(m.org.id)}
             onToggleCompare={() => toggleCompare(m.org.id)}
             upvotes={upvoteCounts[m.org.id] ?? 0}
+            saved={savedIds.has(m.org.id)}
+            onToggleSave={() => toggleSave(m.org.id)}
           />
         ))}
       </div>
@@ -220,6 +228,8 @@ export default function ResultsPage() {
                 compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(m.org.id)}
                 onToggleCompare={() => toggleCompare(m.org.id)}
                 upvotes={upvoteCounts[m.org.id] ?? 0}
+                saved={savedIds.has(m.org.id)}
+                onToggleSave={() => toggleSave(m.org.id)}
               />
             ))}
           </div>
@@ -244,7 +254,7 @@ export default function ResultsPage() {
       <div className="card" style={{ marginTop: 24 }}>
         <p style={{ margin: 0 }}>
           Clubs are one piece of finding your footing here.{" "}
-                    <Link href={`/school/${universityId}/belonging/${recommendSection(profile)}`} style={{ color: "var(--accent)", fontWeight: 600 }}>
+          <Link href={`/school/${universityId}/belonging/${recommendSection(profile)}`} style={{ color: "var(--accent)", fontWeight: 600 }}>
             Read what belonging might look like for you →
           </Link>
         </p>
@@ -285,6 +295,8 @@ function MatchCard({
   compareDisabled,
   onToggleCompare,
   upvotes,
+  saved,
+  onToggleSave,
 }: {
   org: Org;
   score: number;
@@ -296,14 +308,25 @@ function MatchCard({
   compareDisabled: boolean;
   onToggleCompare: () => void;
   upvotes: number;
+  saved: boolean;
+  onToggleSave: () => void;
 }) {
   return (
     <div className="card" style={highlight ? { borderColor: "var(--accent)" } : undefined}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <h3>{org.name}</h3>
-        <span className="match-score">{score}%</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+          <SaveButton saved={saved} onToggle={onToggleSave} />
+          <span className="match-score">
+            <Award size={14} strokeWidth={2} aria-hidden="true" />
+            <span>{score}%</span>
+          </span>
+        </div>
       </div>
-      <span className="pill">{org.category}</span>
+      <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+        <CategoryIcon category={org.category} />
+        {org.category}
+      </span>
       {upvotes > 0 && (
         <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
           {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit
@@ -319,6 +342,10 @@ function MatchCard({
           aria-pressed={vote === "up"}
           style={{
             flex: 1,
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 6,
             padding: "8px 12px",
             fontSize: 13,
             background: vote === "up" ? "var(--accent)" : "transparent",
@@ -326,6 +353,7 @@ function MatchCard({
             border: `1.5px solid ${vote === "up" ? "var(--accent)" : "var(--border)"}`,
           }}
         >
+          <ThumbsUp size={14} strokeWidth={2} aria-hidden="true" />
           Interested
         </button>
         <button
@@ -334,6 +362,10 @@ function MatchCard({
           aria-pressed={vote === "down"}
           style={{
             flex: 1,
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 6,
             padding: "8px 12px",
             fontSize: 13,
             background: vote === "down" ? "var(--ink-soft)" : "transparent",
@@ -341,6 +373,7 @@ function MatchCard({
             border: `1.5px solid ${vote === "down" ? "var(--ink-soft)" : "var(--border)"}`,
           }}
         >
+          <ThumbsDown size={14} strokeWidth={2} aria-hidden="true" />
           Not for me
         </button>
       </div>
@@ -351,8 +384,19 @@ function MatchCard({
         onClick={onToggleCompare}
         disabled={compareDisabled}
         aria-pressed={comparing}
+        style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
       >
-        {comparing ? "✓ Added to comparison" : compareDisabled ? "Compare (max 3 reached)" : "+ Add to comparison"}
+        {comparing ? (
+          <>
+            <Check size={14} strokeWidth={2} aria-hidden="true" /> Added to comparison
+          </>
+        ) : compareDisabled ? (
+          "Compare (max 3 reached)"
+        ) : (
+          <>
+            <Plus size={14} strokeWidth={2} aria-hidden="true" /> Add to comparison
+          </>
+        )}
       </button>
     </div>
   );

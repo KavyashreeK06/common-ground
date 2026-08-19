@@ -1,9 +1,11 @@
 import "./globals.css";
+import { Suspense } from "react";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "Common Ground",
-  description: "Find your people at Columbia.",
+  description: "Find your people, wherever you go to school.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,8 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Nav />
+        <Suspense fallback={<nav className="nav"><span className="nav-brand">Common Ground</span></nav>}>
+          <Nav />
+        </Suspense>
         {children}
+        <Footer />
       </body>
     </html>
   );

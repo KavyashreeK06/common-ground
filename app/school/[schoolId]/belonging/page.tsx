@@ -8,6 +8,7 @@ import { fetchProfileFromCloud } from "../../../../lib/data";
 import { getCurrentUser } from "../../../../lib/auth";
 import { UNIVERSITIES } from "../../../../data/universities";
 import { StudentProfile } from "../../../../types";
+import { Sparkles } from "lucide-react";
 
 export default function BelongingIndexPage({ params }: { params: { schoolId: string } }) {
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
@@ -43,6 +44,9 @@ export default function BelongingIndexPage({ params }: { params: { schoolId: str
 
   const recommendedSlug = profile ? recommendSection(profile) : null;
   const recommended = recommendedSlug ? BELONGING_SECTIONS.find((s) => s.slug === recommendedSlug) : null;
+  const applicableSections = BELONGING_SECTIONS.filter(
+    (s) => !s.universityIds || s.universityIds.includes(school.id)
+  );
 
   return (
     <main className="page">
@@ -64,7 +68,10 @@ export default function BelongingIndexPage({ params }: { params: { schoolId: str
 
       {recommended && (
         <>
-          <span className="pill pill-terracotta" style={{ marginBottom: 8 }}>Recommended for you</span>
+                    <span className="pill pill-terracotta" style={{ marginBottom: 8, display: "inline-flex", alignItems: "center", gap: 5 }}>
+            <Sparkles size={12} strokeWidth={2} aria-hidden="true" />
+            Recommended for you
+          </span>
           <Link
             href={`/school/${school.id}/belonging/${recommended.slug}`}
             className="card"
@@ -78,7 +85,7 @@ export default function BelongingIndexPage({ params }: { params: { schoolId: str
 
       <h2>All articles</h2>
       <div className="grid grid-2">
-        {BELONGING_SECTIONS.map((section) => (
+        {applicableSections.map((section) => (
           <Link
             key={section.slug}
             href={`/school/${school.id}/belonging/${section.slug}`}

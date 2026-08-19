@@ -3,6 +3,7 @@ export interface BelongingSection {
   title: string;
   intro: string;
   body: string[];
+  universityIds?: string[];
 }
 
 export const BELONGING_INTRO = {
@@ -119,6 +120,32 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
       "Not having found a settled community yet -- in week three, or even by the end of a first semester -- doesn't reflect a personal failure. The pacing described throughout these articles is normal, even when it doesn't feel that way in the moment.",
       "It's worth protecting some unstructured downtime even while you're actively trying to build community, rather than treating every free hour as a networking opportunity. Belonging tends to build better on a foundation of actually being okay day to day, not the other way around.",
       "Your school's counseling and psychological services are typically available to any enrolled student, not just students in visible crisis -- for current contact information and what to expect from an initial appointment, it's worth checking your school's counseling center pages directly.",
+    ],
+  },
+  {
+    slug: "starting-a-club-columbia",
+    title: "If you want to start a club here",
+    intro: "Starting a recognized club at Columbia is very possible, but the timeline is longer than most people expect.",
+    universityIds: ["columbia"],
+    body: [
+      "Recognition is granted by one of several separate student-led Governing Boards, not by one central office, and which board you apply to depends on your club's actual purpose. The Activities Board at Columbia (ABC) handles general-interest groups but explicitly excludes community service, political, religious, athletic, and activist organizations -- those go through the Student Governing Board (SGB) instead, and Club Sports and Greek life each have their own separate boards. Applying to the wrong board is a common first mistake, so it's worth confirming which one fits before you start filling anything out.",
+      "The bigger surprise for most students is the timeline: Undergraduate Student Life typically opens a single New Group Recognition application window each spring, and groups approved through that cycle don't officially begin operating until the following fall. If you have an idea now, you're realistically looking at months of lead time before it's official, not weeks.",
+      "Before applying, it's worth checking the existing directory closely -- groups are expected to show they don't duplicate the purpose of something that already exists, and a common reason applications don't move forward is that a similar group is already recognized. You'll typically also need a minimum number of interested members (the exact number varies by governing board) and, for many boards, a short interview or presentation as part of the review.",
+      "If you're recognized, the benefits are real: funding eligibility, an official space-reservation account, and a listing in the recognized directory. But recognition isn't permanent -- clubs go through annual re-recognition and required officer training to keep their status, so budget some ongoing time for that too.",
+      "If you're not in Columbia College or Engineering -- Barnard, the Business School, Law, GSAS, Teachers College, and others each run their own separate recognition process through their own student government, so check with your specific school's student life office rather than the undergraduate process described here.",
+    ],
+  },
+  {
+    slug: "starting-a-club-nyu",
+    title: "If you want to start a club here",
+    intro: "The first real decision at NYU isn't how to start a club -- it's which of two very different processes you're actually starting.",
+    universityIds: ["nyu"],
+    body: [
+      "NYU splits clubs into two categories that are recognized through entirely different offices: All-University clubs, open to any NYU student and centrally recognized through the Student Activities Board, and School clubs, affiliated with and funded by one specific school (Stern, Tandon, Steinhardt, Tisch, and so on), each of which runs its own separate process. Figuring out which one actually fits your idea before you start is worth doing first, since the applications, offices, and timelines don't overlap.",
+      "For an All-University club, the Student Activities Board runs a New Club Development program: accepted applicants go through training on leadership and budgeting, then have to organize a showcase event to actually prove they can draw a crowd, before earning full recognition.",
+      "School clubs vary more than you'd expect from one school to another. Some schools open new-club applications only during a specific window once a year, followed by an interview and then a trial \"incubation\" period with partial benefits before a club earns full active status. Others require a signature petition from a set number of students, a minimum founding-member count, and a confirmed faculty advisor before an application is even considered. There isn't one process that describes all of NYU -- check your specific school's student life or student activities office for the actual current steps.",
+      "A few things are close to universal regardless of path: you'll need an officer team (usually at least three or four people -- president, vice president, treasurer, sometimes secretary), a faculty or staff advisor, and a constitution, which NYU requires clubs to base on a provided model template rather than writing from scratch. Officer training and annual re-recognition are also standard once you're recognized.",
+      "With well over 300 active clubs already at NYU, it's worth a genuine look through NYU Engage before committing to starting something new -- a lot of specific niches turn out to already exist, and joining or proposing a new direction within an existing club is often faster than building recognition from zero.",
     ],
   },
 ];

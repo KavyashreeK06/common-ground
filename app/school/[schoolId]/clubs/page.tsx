@@ -7,12 +7,18 @@ import { Org } from "../../../../types";
 import { fetchOrgs, submitOrgEdit, fetchOrgUpvoteCounts } from "../../../../lib/data";
 import { getCurrentUser } from "../../../../lib/auth";
 import { describeOrgForComparison } from "../../../../lib/matching";
+import { CategoryIcon } from "../../../../components/CategoryIcon";
 import { UNIVERSITIES } from "../../../../data/universities";
+import { Check, Plus, SearchX, Pencil } from "lucide-react";
+import { LoadingSpinner } from "../../../../components/Loading";
+import { SaveButton } from "../../../../components/SaveButton";
+import { useSavedOrgs } from "../../../../lib/useSavedOrgs";
 
 const MAX_COMPARE = 3;
 
 export default function ClubsPage({ params }: { params: { schoolId: string } }) {
   const school = UNIVERSITIES.find((u) => u.id === params.schoolId);
+  const { savedIds, toggleSave } = useSavedOrgs(params.schoolId);
 
   const [orgs, setOrgs] = useState<Org[]>([]);
   const [dataSource, setDataSource] = useState<"supabase" | "local" | null>(null);
@@ -89,7 +95,7 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
       </p>
 
       {loading ? (
-        <p className="subtitle">Loading clubs...</p>
+        <LoadingSpinner label="Loading clubs..." />
       ) : (
         <>
           <div style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
@@ -143,19 +149,29 @@ export default function ClubsPage({ params }: { params: { schoolId: string } }) 
 
           <p style={{ color: "var(--ink-soft)", fontSize: 14 }}>{orgs.length} organizations -- {filtered.length} shown</p>
 
-          <div className="grid grid-2">
-            {filtered.map((o) => (
-              <ClubCard
-                key={o.id}
-                org={o}
-                comparing={compareIds.includes(o.id)}
-                compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
-                onToggleCompare={() => toggleCompare(o.id)}
-                upvotes={upvoteCounts[o.id] ?? 0}
-                user={user}
-              />
-            ))}
-          </div>
+          {filtered.length === 0 ? (
+            <div className="empty-state">
+              <SearchX size={28} strokeWidth={1.5} aria-hidden="true" />
+              <p style={{ margin: 0, fontWeight: 600 }}>No clubs match that search</p>
+              <p style={{ margin: 0, fontSize: 14 }}>Try a different keyword or clear the category filter.</p>
+            </div>
+          ) : (
+            <div className="grid grid-2">
+              {filtered.map((o) => (
+                <ClubCard
+                  key={o.id}
+                  org={o}
+                  comparing={compareIds.includes(o.id)}
+                  compareDisabled={compareIds.length >= MAX_COMPARE && !compareIds.includes(o.id)}
+                  onToggleCompare={() => toggleCompare(o.id)}
+                  upvotes={upvoteCounts[o.id] ?? 0}
+                  user={user}
+                  saved={savedIds.has(o.id)}
+                  onToggleSave={() => toggleSave(o.id)}
+                />
+              ))}
+            </div>
+          )}
         </>
       )}
 
@@ -185,6 +201,8 @@ function ClubCard({
   onToggleCompare,
   upvotes,
   user,
+  saved,
+  onToggleSave,
 }: {
   org: Org;
   comparing: boolean;
@@ -192,6 +210,8 @@ function ClubCard({
   onToggleCompare: () => void;
   upvotes: number;
   user: User | null;
+  saved: boolean;
+  onToggleSave: () => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [description, setDescription] = useState(org.description);
@@ -221,8 +241,14 @@ function ClubCard({
 
   return (
     <div className="card">
-      <h3>{org.name}</h3>
-      <span className="pill">{org.category}</span>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <h3 style={{ margin: 0 }}>{org.name}</h3>
+        <SaveButton saved={saved} onToggle={onToggleSave} />
+      </div>
+      <span className="pill" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+        <CategoryIcon category={org.category} />
+        {org.category}
+      </span>
       {upvotes > 0 && (
         <p style={{ margin: "8px 0 0", fontSize: 12, color: "var(--terracotta)", fontWeight: 600 }}>
           {upvotes} {upvotes === 1 ? "student" : "students"} marked this as a fit
@@ -239,16 +265,34 @@ function ClubCard({
           onClick={onToggleCompare}
           disabled={compareDisabled}
           aria-pressed={comparing}
+          style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
         >
-          {comparing ? "✓ Added to comparison" : compareDisabled ? "Compare (max 3)" : "+ Compare"}
+          {comparing ? (
+            <>
+              <Check size={14} strokeWidth={2} aria-hidden="true" /> Added to comparison
+            </>
+          ) : compareDisabled ? (
+            "Compare (max 3)"
+          ) : (
+            <>
+              <Plus size={14} strokeWidth={2} aria-hidden="true" /> Compare
+            </>
+          )}
         </button>
         {status !== "success" && (
           <button
             type="button"
             className="compare-toggle"
             onClick={() => setEditing((v) => !v)}
+            style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
           >
-            {editing ? "Cancel" : "Suggest an edit"}
+            {editing ? (
+              "Cancel"
+            ) : (
+              <>
+                <Pencil size={13} strokeWidth={2} aria-hidden="true" /> Suggest an edit
+              </>
+            )}
           </button>
         )}
       </div>
