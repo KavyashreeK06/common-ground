@@ -2,6 +2,7 @@ import { supabase, isSupabaseConfigured } from "./supabase";
 import { AxisVector, MatchResult, Org, QuizQuestion, StudentProfile } from "../types";
 import columbiaSeed from "../data/columbia_orgs_seed.json";
 import nyuSeed from "../data/nyu_orgs_seed.json";
+import cornellSeed from "../data/cornell_orgs_seed.json";
 import { QUESTIONS as LOCAL_QUESTIONS } from "../data/questions";
 
 function buildLocalOrgs(seed: { university: { id: string }; orgs: any[] }): Org[] {
@@ -10,6 +11,7 @@ function buildLocalOrgs(seed: { university: { id: string }; orgs: any[] }): Org[
     university_id: seed.university.id,
     name: o.name,
     category: o.category,
+    secondaryCategories: o.secondaryCategories ?? undefined,
     description: o.description ?? "",
     tags: o.tags,
   }));
@@ -18,6 +20,7 @@ function buildLocalOrgs(seed: { university: { id: string }; orgs: any[] }): Org[
 const LOCAL_ORGS_BY_UNIVERSITY: Record<string, Org[]> = {
   columbia: buildLocalOrgs(columbiaSeed as any),
   nyu: buildLocalOrgs(nyuSeed as any),
+  cornell: buildLocalOrgs(cornellSeed as any),
 };
 
 export async function fetchOrgs(universityId = "columbia"): Promise<{ orgs: Org[]; source: "supabase" | "local" }> {
