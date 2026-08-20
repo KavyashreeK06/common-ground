@@ -141,6 +141,7 @@ h3 {
 
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.grid-schools { grid-template-columns: repeat(2, 1fr); }
 
 button, .btn {
   font: inherit;
@@ -415,5 +416,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   }
   h1 {
     font-size: 26px;
+  }
+  .grid-schools {
+    grid-template-columns: 1fr;
   }
 }

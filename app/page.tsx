@@ -14,8 +14,8 @@ export default function HomePage() {
       </p>
 
       <h2>Choose your school</h2>
-      <div className="grid grid-2">
-          {UNIVERSITIES.map((u) => (
+        <div className="grid grid-schools">
+        {UNIVERSITIES.map((u) => (
           <Link key={u.id} href={`/school/${u.id}`} className="year-card">
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
               <SchoolFlag color={u.color} accentColor={u.accentColor} size={16} />
