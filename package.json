@@ -8,6 +8,7 @@
     "seed:supabase": "tsx scripts/seed-supabase.ts",
     "seed:nyu": "tsx scripts/seed-nyu.ts",
     "seed:cornell": "tsx scripts/seed-cornell.ts",
+        "seed:penn": "tsx scripts/seed-penn.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

@@ -2,8 +2,8 @@ export interface BelongingSection {
   slug: string;
   title: string;
   intro: string;
-  body: string[];
-  universityIds?: string[];
+  body: string[]; // paragraphs
+  universityIds?: string[]; // omit = shown to every school; set = shown only to those schools
 }
 
 export const BELONGING_INTRO = {
@@ -148,8 +148,27 @@ export const BELONGING_SECTIONS: BelongingSection[] = [
       "With well over 300 active clubs already at NYU, it's worth a genuine look through NYU Engage before committing to starting something new -- a lot of specific niches turn out to already exist, and joining or proposing a new direction within an existing club is often faster than building recognition from zero.",
     ],
   },
+  {
+    slug: "starting-a-club-cornell",
+    title: "If you want to start a club here",
+    intro: "New club applications at Cornell don't open whenever you're ready -- they open once a year, and only after Campus Activities finishes re-registering everyone already active.",
+    universityIds: ["cornell"],
+    body: [
+      "New Student Organization Registration typically opens in mid-October, after Campus Activities has worked through re-registering the roughly 1,200 existing organizations already on campus. Even then, approval isn't guaranteed -- with limited funding and staff time, Campus Activities is upfront that not every application gets accommodated.",
+      "Before you apply, there's a short eligibility screen worth checking yourself against first: groups affiliated with a fraternity or sorority go through Sorority & Fraternity Life instead, a group formed only for a single event or election doesn't qualify, more than half non-Cornell membership doesn't qualify, and a common reason applications stall is that a similar group with the same mission already exists -- worth searching CampusGroups' directory closely before you commit to starting from scratch.",
+      "Cornell also has a specific naming convention: your club generally needs to be named \"[Group Name] at Cornell\" and include the word \"Club\" somewhere, or \"Cornell Chapter\" if you're a nationally affiliated group. Beyond the name, you'll need a President, Vice President, and Treasurer with NetIDs, an advisor's contact information, a mission statement, a constitution built from Cornell's required template rather than written from scratch, and a logo that follows Cornell's brand guidelines.",
+      "That advisor is also where Cornell's two classifications come from. Independent Organizations (EO) are student-formed and find their own volunteer faculty or staff advisor, who helps on their own time outside their actual job. University Organizations (IT) are affiliated with an actual university department, which assigns a staff member or grad student as advisor as part of their role -- meaning more built-in oversight, but also a more institutionally connected home. Both types are open to any Cornell student.",
+      "The whole process runs through Cornell CampusGroups and takes about six weeks start to finish once the window opens. Recognition isn't permanent, either -- existing clubs go through annual re-registration each year (roughly late July through early October), which requires at least ten active members and an updated constitution, so budget time for that too.",
+    ],
+  },
 ];
 
+// Picks the single most relevant article for a student, based on quiz
+// profile signals -- checked in priority order (most specific/confident
+// signal first). Doesn't hide the other articles; just decides which one
+// gets surfaced first. Always returns a valid slug -- there's a sensible
+// fallback for every case, including a student who gave no optional info
+// at all.
 export function recommendSection(profile: {
   year: string;
   isInternational?: boolean;
@@ -177,5 +196,5 @@ export function recommendSection(profile: {
     return "quiet-or-introverted";
   }
   if (profile.year === "freshman") return "first-year";
-  return "transfer-or-later-arrival";
+  return "transfer-or-later-arrival"; // sophomore, no strong signal otherwise
 }

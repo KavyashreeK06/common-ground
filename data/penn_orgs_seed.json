@@ -1,0 +1,7082 @@
+{
+  "university": {
+    "id": "penn",
+    "name": "University of Pennsylvania",
+    "domain": "upenn.edu"
+  },
+  "axis_key": "AxisVector on a 0-10 scale: structure, competitive, public, group_size, career, physical, creative, cause, novelty, identity.",
+  "note": "Org names and categories sourced from Penn's own student club directory, pasted in full and parsed programmatically (categories were concatenated without separators in the source and reconstructed via a vocabulary-based tokenizer). The directory's own category tags were mapped to this app's 14-category taxonomy using a priority-ordered mapping (see scripts/build_penn_seed.py); axis tags were generated the same way as Columbia, NYU, and Cornell -- category-level default vectors plus light keyword nudges based on each org's name. Also includes Penn's 37 recognized Greek chapters and its student government structure, both sourced separately since they sit outside the main club directory. Treat these as a reasonable v1, not precise per-org judgments; refine by hand for any org that ends up in your top demo matches.",
+  "orgs": [
+    {
+      "name": "The Jazz Ensemble at Penn",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "The Moviegoer",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "GameDay at Penn",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 3,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "The Epistle at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Music Business at Penn",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Keynotes A Cappella",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Chinese Students' Association (CSA)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Outdoors Club at Penn",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 2,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Wharton Undergraduate Consulting Club (WUCC)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Government and Politics Association",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "West Philly Swingers",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Electric Racing at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Doxa Campus Ministry",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Undergraduate Moot Court at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "United Minorities Council (UMC)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Reading Initiative",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      }
+    },
+    {
+      "name": "Soundworks Tap Factory",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      }
+    },
+    {
+      "name": "PennYo A Cappella",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 6,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Society of Undergraduate Mathematicians @ Penn",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "UMOJA",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Wharton Investment & Trading Group (WITG)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Bioethics Society at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Effective Altruism at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Anime@Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Wharton Undergraduate Data Analytics Club (WUDAC)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Women's Club Ultimate Frisbee (Venus)",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Baking Club @ Penn",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 2,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Hong Kong Student Association at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Programs in Religious, Interfaith, and Spiritual Matters (PRISM)",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Student Government and Advisory Boards",
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Neuroscience Society at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "PennApps",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Alpha Kappa Alpha Sorority, Incorporated.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Climbing Club",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Shea Collective",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Global Research and Consulting (GRC)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The Social Impact Consulting Group [SIC]",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Penn Leads the Vote",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Penn Club XCTF",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Taekwondo Club (World Taekwondo) at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Athletics",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Wharton Women",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Korean Graduate Students Association (KoGSA) at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Club Squash",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Clio Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Phi Delta Epsilon",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Chinese Language and Culture Club",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Ethics Bowl at Penn",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn for Refugee Empowerment",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Wharton Korea Undergraduate Business Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Fuerza",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Undergraduate Biotech Society (PUBS)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Kidney Disease Screening and Awareness Program (KDSAP)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn Hillel",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Musical",
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Korea-Penn Engineers and Scientists Association",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "The Alt Protein Project at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Quakers Venture Club at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "The Daily Pennsylvanian",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Pre-Professional",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penny Loafers A Cappella",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Accountability Initiative",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Common Cents",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Christian Union Martus",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "UPGRADE",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Off The Beat",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Medical Volunteers for Prevention",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 10,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn Democrats",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Medical Emergency Response Team (MERT)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 7,
+        "competitive": 6,
+        "public": 3,
+        "group_size": 5,
+        "career": 10,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Penn Music Mentoring Program",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 1,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Band",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Policy Consulting Group at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Penn Lions",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Pennsylvania Six-5000 (Penn Six)",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "UNICEF at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Pre-Professional",
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "NAACP at the University of Pennsylvania",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Penn for Immigrant Rights",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Aerial Robotics @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 9,
+        "physical": 0,
+        "creative": 1,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Environmental Group at Penn (PEG)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Koreans At Penn (KAP)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "The Pennchants",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Astronomy at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Blockchain at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Masti",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Women in Physics",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Alzheimer's Buddies",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Advanced Medicine & Healthcare Society (AMHS)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Spikeball Club at Penn",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Excelano Project",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Ase Academy",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Boxing Club at Penn",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "FIMRC at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Global AI Alliance at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Consult For America (CFA)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Assembly of International Students",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Engineering Deans' Advisory Board (EDAB)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Women's Club Volleyball",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Undergraduate Geography Club",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "F-Word: A Collection of Feminist Voices",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "BlackGen Capital",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Taiwanese Society at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Chabad House at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Wharton Marketing Undergraduate Student Establishment (MUSE)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Aerospace Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Japan Student Association",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "South Asian Women's Space",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The College Dean's Advisory Board (DAB)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Black Graduate and Professional Student Assembly",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Wharton Undergraduate Finance Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Climate Ventures at Penn",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Student Government and Advisory Boards",
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Christian Association Student Community",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Global ESG Leadership Association at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "West Philadelphia Sanctuary",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Sustainability Consulting at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn K-Beats",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Singers Light Opera Company",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Reach-A-Peer Helpline",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Pi Lambda Sigma",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Strictly Funk",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Minorities in Nursing Organization",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Sudanese Association At Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      }
+    },
+    {
+      "name": "Women in Computer Science (WiCS)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Quantum Computing Club at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 9,
+        "physical": 0,
+        "creative": 1,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "180 Degrees Consulting",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Men's Club Ultimate Frisbee",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Sargam",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical"
+      ]
+    },
+    {
+      "name": "Natives at Penn (NAP)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "PIIC - International Impact Consulting",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The Undergraduate Law Journal at Penn",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional"
+      ]
+    },
+    {
+      "name": "UnEarthed Penn",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Models@Penn",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 3,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Wharton Asia Exchange",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The WALK Magazine",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Onda Latina",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "PENNaach",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "Bangla Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Wharton Undergraduate Entrepreneurship Club (WUEC)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Penn Science Policy and Diplomacy Group",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Active Minds",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Medical Interpreters @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 10,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Arts House Dance Company",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 8,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      }
+    },
+    {
+      "name": "Debate Society",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional"
+      ]
+    },
+    {
+      "name": "CityStep",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Grey Matters at Penn",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "West Philadelphia Tutoring Project",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 9,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn Judo Club",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Materials Science and Engineering Society (MSE Society)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Society for Creative Anachronism",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Wharton Undergraduates in Public Policy",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Computer Science Society at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Social Planning and Events Committee (SPEC)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Reproductive Justice Working Group at Penn",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Chinese Theater at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Stimulus Children's Theatre Company",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Association of Latino Professionals For America (ALPFA)",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Kendo Club at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Athletics",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Symphony Orchestra",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Upstage A Cappella",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "SPEC Connaissance",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "MathMates",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Black Designers Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Service Link",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Pennsylvania Players",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Undergraduate Chemistry Society",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Chinese Dance Club at Penn (PCDC)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 4,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Students at Penn for Sports Fitness and Health in West Philadelphia Schools",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Beekeeping Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Philippine Association (PPA)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Chi Alpha Christian Fellowship",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 1,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 0,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Association of Black Aspiring Dentists",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Black Student League",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 5,
+        "public": 3,
+        "group_size": 6,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Bloomers Comedy",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Media and Publications",
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn for Youth Debate",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Wharton Actuarial & Accounting Group",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Wellness Student Coalition",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Nutrition Education Service Team (NEST) at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 7,
+        "competitive": 6,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Freaks of the Beat",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Athletics",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Mock Trial at Penn",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Wharton International Business and Economics Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "DREAM at Penn",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Doctores Hispanos Del Futuro @PENN/LMSA+",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Society of Women Engineers (Undergraduate)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Penn Hype Dance Crew",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 8,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Catholic Newman Community at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Allied Scholars for Animal Protection",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Songwriters Collective",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "SPEC To Represent Undergraduate Minorities (SPEC-TRUM)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Student Government and Advisory Boards"
+      ]
+    },
+    {
+      "name": "Quackers Bird Club at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "SPEC Film Society",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Beyond Arrests: Re-Thinking Systematic-Oppression (BARS)",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Model Congress at Penn",
+      "category": "Politics, Activism and Advocacy",
+      "description": "An advocacy and activism organization at Penn working on causes its members care about.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 4,
+        "career": 2,
+        "physical": 0,
+        "creative": 2,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 3
+      },
+      "secondaryCategories": [
+        "Pre-Professional"
+      ]
+    },
+    {
+      "name": "Philly Math Contest @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Club Gymnastics at Penn",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Pen to Paper",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Media and Publications",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Theta Tau",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Kesem at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Biomedical Engineering Society (BMES)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 10,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Product Space @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "The University of Pennsylvania Glee Club",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "SNUGS (Special Needs Undergraduate Swim Lessons)",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Karate Club at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Athletics",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Quaker Notes",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "Quaker Girls Dance Team",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 8,
+        "competitive": 5,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 8,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Masala",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Raas",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "Advocates for Neurodiversity (AND)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 4,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Wharton Undergraduate Founders and Funders Association",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "First-Generation/Low-Income Dean's Advisory Board",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Student Government and Advisory Boards",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The Wharton AgriBusiness Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Pediatric Cancer Coalition @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "MENA Undergraduate Pre-Law Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 3,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Academic"
+      ]
+    },
+    {
+      "name": "TEDxPenn",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Dischord A Cappella",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Penn Esports",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 7,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Students Providing Aid (SPAid@PENN)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Every Nation Campus",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Asian Pacific Student Coalition (APSC)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Student Government and Advisory Boards",
+        "Politics, Activism and Advocacy",
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Veritas Forum at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Atma",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts"
+      ]
+    },
+    {
+      "name": "Student Harm Reduction Coalition",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "First Generation Investors - Penn Chapter",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Wharton Undergraduate Statistics Society (USS)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "The Student Committee on Undergraduate Education (SCUE)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "REACH at Penn",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 5,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Yarnaholics",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 3,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Hillel Soup Kitchen",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Health of African Immigrants Program at the Univ. of Pennsylvania",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "RJ on the Street",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Poker at Penn",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 7,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Indian Association at Penn (IAP)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Women in Life Sciences (WILS)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "AI Society at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Gamma Chapter of Delta Sigma Theta Sorority, Inc",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Asian Pacific Indigenous Athlete Coalition (APIAC)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Omani Student Organization at Penn (OSO Penn)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Wharton Undergraduate Aerospace Club",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Undergraduate Assembly (UA)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Men's Club Basketball",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "HOSA @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Quiz Bowl at Penn",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Counterparts",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Sparks Dance Company",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 8,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Service",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Guatemala Health Initiative",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Club Baseball at Penn",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 6,
+        "competitive": 7,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Black Muslims at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Service"
+      ]
+    },
+    {
+      "name": "Alpha Omega Epsilon",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "DJ@Penn",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Performing Arts",
+        "Pre-Professional"
+      ]
+    },
+    {
+      "name": "Penn Association for Gender Equity (PAGE)",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Student Government and Advisory Boards",
+        "Politics, Activism and Advocacy",
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Business Industry Trends (BIT)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Hearts for the Homeless Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The Penn Museum Graduate Advisory Council",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "The Appétit",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Media and Publications",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Science Olympiad at the University of Pennsylvania",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Phi Gamma Nu (PGN) Professional Business Fraternity",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Pre-Professional"
+      ]
+    },
+    {
+      "name": "Quadramics Theatre Co.",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Heart Health @ Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Bridging the Arts and Sciences",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Moso Capital",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Netter Center Student Advisory Board",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Intervarsity Graduate Christian Fellowship at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 1,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 0,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Matriculate",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "SPEC Concerts",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Student Government and Advisory Boards"
+      ]
+    },
+    {
+      "name": "Nigerians at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Skeptic's Dinner",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Ghanaians at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Student-Athlete Investment Club",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic"
+      ]
+    },
+    {
+      "name": "Asian Baptist Student Koinonia (ABSK)",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "The Glory Guild",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Autism Alliance at Penn",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Underrepresented Student Advisory Board in Engineering",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Admissions Dean's Advisory Board",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "SPEC Jazz & Grooves",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 7,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      }
+    },
+    {
+      "name": "BioArt Lab at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Asian Students Promoting Identity, Reflection, and Education (ASPIRE)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn Latin and Ballroom Dance (PLBD)",
+      "category": "Performing Arts",
+      "description": "A performing arts group at Penn for students interested in dance, theater, or live performance.",
+      "tags": {
+        "structure": 7,
+        "competitive": 3,
+        "public": 8,
+        "group_size": 5,
+        "career": 1,
+        "physical": 8,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      }
+    },
+    {
+      "name": "Asian Pacific American Pre-Medical Students Association (APAMSA)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 3,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "The Petey Greene Program at Penn",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      }
+    },
+    {
+      "name": "Future Black Men in White Coats at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Access Engineering",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "African Student Association at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Collegium Institute Student Association at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Academic",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Cogwell Listen Up",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "SPEC Pop Up",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Zen Society at Penn",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Service"
+      ]
+    },
+    {
+      "name": "Taekwondo Club (ITF)",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 5,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Check All",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Educational Pipeline Program",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Academic",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Cubing at Penn",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 3,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Penncasila",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Auxilium Tutoring",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Penn History Review",
+      "category": "Media and Publications",
+      "description": "A student-run media or publication group at Penn.",
+      "tags": {
+        "structure": 5,
+        "competitive": 1,
+        "public": 4,
+        "group_size": 3,
+        "career": 3,
+        "physical": 0,
+        "creative": 7,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      }
+    },
+    {
+      "name": "FGLI Podcast",
+      "category": "Identity-Based",
+      "description": "An identity-based community at Penn offering support, connection, and shared experience.",
+      "tags": {
+        "structure": 3,
+        "competitive": 1,
+        "public": 3,
+        "group_size": 4,
+        "career": 1,
+        "physical": 0,
+        "creative": 2,
+        "cause": 5,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Media and Publications"
+      ]
+    },
+    {
+      "name": "InterVarsity Christian Fellowship",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 1,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 0,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Korean Student Association at Penn (KSA)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Grupo Quisqueyano",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Classics Board",
+      "category": "Academic",
+      "description": "An academic-focused student organization at Penn for students interested in this subject or field.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 4,
+        "career": 6,
+        "physical": 0,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 3,
+        "identity": 1
+      }
+    },
+    {
+      "name": "PennSori A Cappella",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 6,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Musical"
+      ]
+    },
+    {
+      "name": "Adventist Students for Christ",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      }
+    },
+    {
+      "name": "South Asia Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "SPEC Sound",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Penn EnChord A Cappella",
+      "category": "Musical",
+      "description": "A musical performance group at Penn.",
+      "tags": {
+        "structure": 7,
+        "competitive": 2,
+        "public": 8,
+        "group_size": 4,
+        "career": 1,
+        "physical": 2,
+        "creative": 8,
+        "cause": 0,
+        "novelty": 1,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Performing Arts",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Malaysians at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Onyx Senior Honor Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 2,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Service"
+      ]
+    },
+    {
+      "name": "Taiwanese Graduate and Professional Student Association",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Volunteer Income Tax Assistance at Penn (VITA @ Penn)",
+      "category": "Service",
+      "description": "A community service organization at Penn focused on volunteering and giving back.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 2,
+        "group_size": 4,
+        "career": 2,
+        "physical": 1,
+        "creative": 1,
+        "cause": 8,
+        "novelty": 2,
+        "identity": 2
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Istmo Y Vos",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Arab Student Society",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Peruvian Student Association",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Persian Students Association at Penn",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      }
+    },
+    {
+      "name": "Muslim Students' Association",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 3,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Cultural",
+        "Service"
+      ]
+    },
+    {
+      "name": "Nonprofit Connect",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Service",
+        "Politics, Activism and Advocacy"
+      ]
+    },
+    {
+      "name": "Penn Ski and Snowboard Team",
+      "category": "Athletics",
+      "description": "A competitive club sports team at Penn for students who want to train and compete together.",
+      "tags": {
+        "structure": 8,
+        "competitive": 9,
+        "public": 5,
+        "group_size": 5,
+        "career": 0,
+        "physical": 9,
+        "creative": 0,
+        "cause": 0,
+        "novelty": 2,
+        "identity": 1
+      },
+      "secondaryCategories": [
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Full Measure A Cappella",
+      "category": "Religious/Spiritual",
+      "description": "A faith or spiritual community at Penn for students who share this tradition.",
+      "tags": {
+        "structure": 5,
+        "competitive": 0,
+        "public": 4,
+        "group_size": 5,
+        "career": 0,
+        "physical": 0,
+        "creative": 1,
+        "cause": 4,
+        "novelty": 1,
+        "identity": 6
+      },
+      "secondaryCategories": [
+        "Musical",
+        "Special Interest"
+      ]
+    },
+    {
+      "name": "Society of Hispanic Professional Engineers (SHPE)",
+      "category": "Cultural",
+      "description": "A cultural and community organization at Penn celebrating shared heritage, background, or identity.",
+      "tags": {
+        "structure": 4,
+        "competitive": 1,
+        "public": 5,
+        "group_size": 6,
+        "career": 1,
+        "physical": 1,
+        "creative": 3,
+        "cause": 3,
+        "novelty": 2,
+        "identity": 9
+      },
+      "secondaryCategories": [
+        "Pre-Professional",
+        "Service",
+        "Academic"
+      ]
+    },
+    {
+      "name": "Hyperloop at Penn",
+      "category": "Pre-Professional",
+      "description": "A pre-professional student organization at Penn offering networking, mentorship, and career-building resources.",
+      "tags": {
+        "structure": 6,
+        "competitive": 4,
+        "public": 3,
+        "group_size": 5,
+        "career": 8,
+        "physical": 0,
+        "creative": 2,
+        "cause": 1,
+        "novelty": 2,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Kite and Key Society",
+      "category": "Special Interest",
+      "description": "A student interest club at Penn for students who share this particular hobby or interest.",
+      "tags": {
+        "structure": 3,
+        "competitive": 2,
+        "public": 2,
+        "group_size": 4,
+        "career": 1,
+        "physical": 1,
+        "creative": 4,
+        "cause": 1,
+        "novelty": 6,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Alpha Chi Rho",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Alpha Epsilon Pi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Alpha Kappa Alpha Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "alpha Kappa Delta Phi Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Alpha Phi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Alpha Phi Alpha Fraternity, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Alpha Tau Omega",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Beta Theta Pi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Chi Omega",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Delta Delta Delta",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Delta Phi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Delta Psi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Delta Sigma Theta Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Kappa Alpha Psi Fraternity, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Kappa Alpha Society",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Kappa Alpha Theta",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Kappa Sigma",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "La Unidad Latina, Lambda Upsilon Lambda Fraternity, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Lambda Theta Alpha Latin Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Omega Psi Phi Fraternity, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Phi Delta Theta",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Phi Gamma Delta",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Phi Kappa Psi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Phi Kappa Sigma",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Psi Upsilon",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Alpha Epsilon",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Alpha Mu",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Chi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Delta Tau",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Kappa",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Lambda Upsilon, Senoritas Latinas Unidas Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Phi Epsilon",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Sigma Psi Zeta Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Tau Epsilon Phi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Zeta Beta Tau",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Zeta Phi Beta Sorority, Inc.",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Zeta Psi",
+      "category": "Fraternity and Sorority Life",
+      "description": "A recognized fraternity or sorority chapter at Penn, affiliated with a national organization.",
+      "tags": {
+        "structure": 6,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 8,
+        "career": 2,
+        "physical": 2,
+        "creative": 2,
+        "cause": 2,
+        "novelty": 2,
+        "identity": 6
+      }
+    },
+    {
+      "name": "Penn Undergraduate Student Government (PSG)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Class Board 2027",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Class Board 2028",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Class Board 2029",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Class Board 2030",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Nominations and Elections Committee (NEC)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    },
+    {
+      "name": "Student Activities Council (SAC)",
+      "category": "Student Government and Advisory Boards",
+      "description": "A student governance or advisory organization at Penn.",
+      "tags": {
+        "structure": 8,
+        "competitive": 2,
+        "public": 5,
+        "group_size": 6,
+        "career": 4,
+        "physical": 0,
+        "creative": 1,
+        "cause": 3,
+        "novelty": 1,
+        "identity": 1
+      }
+    }
+  ]
+}

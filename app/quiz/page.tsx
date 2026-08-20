@@ -7,7 +7,7 @@ import { LoadingPage } from "../../components/Loading";
 import { getCurrentUser } from "../../lib/auth";
 import { buildStudentVector } from "../../lib/matching";
 import { saveProfile } from "../../lib/storage";
-import { COLUMBIA_MAJORS } from "../../data/majors";
+import { MAJORS_BY_UNIVERSITY, COLUMBIA_MAJORS } from "../../data/majors";
 import { BACKGROUND_TAGS } from "../../data/background";
 import { POSTGRAD_TAGS } from "../../data/postgrad";
 import { RELIGION_TAGS } from "../../data/religion";
@@ -50,6 +50,7 @@ function QuizInner() {
   const questions = rawQuestions.filter((q) => !q.audience_years || q.audience_years.includes(year));
 
   const asksMajor = year !== "freshman";
+  const schoolMajors = MAJORS_BY_UNIVERSITY[universityId] ?? COLUMBIA_MAJORS;
 
   let stepCounter = 1;
   const backgroundStepIndex = stepCounter++;
@@ -271,7 +272,7 @@ function QuizInner() {
             even casually. Optional.
           </p>
           <div className="grid grid-2">
-            {COLUMBIA_MAJORS.map((m) => (
+            {schoolMajors.map((m) => (
               <button
                 key={m}
                 className={`option-btn ${interests.includes(m) ? "selected" : ""}`}
@@ -419,7 +420,7 @@ function QuizInner() {
             onChange={(e) => setMajor(e.target.value)}
           >
             <option value="" disabled>Select your major</option>
-            {COLUMBIA_MAJORS.map((m) => (
+            {schoolMajors.map((m) => (
               <option key={m} value={m}>{m}</option>
             ))}
           </select>

@@ -3,6 +3,7 @@ import { AxisVector, MatchResult, Org, QuizQuestion, StudentProfile } from "../t
 import columbiaSeed from "../data/columbia_orgs_seed.json";
 import nyuSeed from "../data/nyu_orgs_seed.json";
 import cornellSeed from "../data/cornell_orgs_seed.json";
+import pennSeed from "../data/penn_orgs_seed.json";
 import { QUESTIONS as LOCAL_QUESTIONS } from "../data/questions";
 
 function buildLocalOrgs(seed: { university: { id: string }; orgs: any[] }): Org[] {
@@ -21,6 +22,7 @@ const LOCAL_ORGS_BY_UNIVERSITY: Record<string, Org[]> = {
   columbia: buildLocalOrgs(columbiaSeed as any),
   nyu: buildLocalOrgs(nyuSeed as any),
   cornell: buildLocalOrgs(cornellSeed as any),
+  penn: buildLocalOrgs(pennSeed as any),
 };
 
 export async function fetchOrgs(universityId = "columbia"): Promise<{ orgs: Org[]; source: "supabase" | "local" }> {
